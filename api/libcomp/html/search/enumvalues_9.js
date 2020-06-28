@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['match_5factive',['MATCH_ACTIVE',['../ErrorCodes_8h.html#a025150864fda35ac52afa639bfd33c17a01b17293657f5a6ba87143f1c62aaac8',1,'ErrorCodes.h']]],
+  ['match_5factive_5freject',['MATCH_ACTIVE_REJECT',['../ErrorCodes_8h.html#a025150864fda35ac52afa639bfd33c17afe791689644dd6e82f877908387e1427',1,'ErrorCodes.h']]],
+  ['matchmanager',['MatchManager',['../namespacelibcomp.html#a57b40b6510404432c4e48817a3efd9cca2113b4b235d49f137d0619f749082d88',1,'libcomp']]],
+  ['message_5ftype_5fclient',['MESSAGE_TYPE_CLIENT',['../namespacelibcomp_1_1Message.html#a0816108a83e14b6ce2a0d9fb4084c2a6a28cd6e055b51db68a00f90054edde412',1,'libcomp::Message']]],
+  ['message_5ftype_5fconnection',['MESSAGE_TYPE_CONNECTION',['../namespacelibcomp_1_1Message.html#a0816108a83e14b6ce2a0d9fb4084c2a6a4861abdcfc1d4da64df07176c0e3b151',1,'libcomp::Message']]],
+  ['message_5ftype_5fpacket',['MESSAGE_TYPE_PACKET',['../namespacelibcomp_1_1Message.html#a0816108a83e14b6ce2a0d9fb4084c2a6ac5738a71a691cb90f3b8be8ea6dc0c5d',1,'libcomp::Message']]],
+  ['message_5ftype_5fsystem',['MESSAGE_TYPE_SYSTEM',['../namespacelibcomp_1_1Message.html#a0816108a83e14b6ce2a0d9fb4084c2a6a1e34573d4b8e31c2c6e8f61e5be8c3a5',1,'libcomp::Message']]],
+  ['mode_5fnormal',['MODE_NORMAL',['../classlibcomp_1_1LobbyConnection.html#a0f02726cbc7f0030b78d38bdf5560a68abff9fadf17693558d8de3babcf787fe3',1,'libcomp::LobbyConnection']]],
+  ['mode_5fping',['MODE_PING',['../classlibcomp_1_1LobbyConnection.html#a0f02726cbc7f0030b78d38bdf5560a68a74cd309cdb5e9ae2d4ada7bcb99729d1',1,'libcomp::LobbyConnection']]],
+  ['mode_5frequirements',['MODE_REQUIREMENTS',['../ErrorCodes_8h.html#a025150864fda35ac52afa639bfd33c17a7958f5366cbebfade52067360718984a',1,'ErrorCodes.h']]],
+  ['mode_5frequirements_5freject',['MODE_REQUIREMENTS_REJECT',['../ErrorCodes_8h.html#a025150864fda35ac52afa639bfd33c17af68a30c2cde300075b050104311e6f42',1,'ErrorCodes.h']]],
+  ['mode_5fworld_5fup',['MODE_WORLD_UP',['../classlibcomp_1_1LobbyConnection.html#a0f02726cbc7f0030b78d38bdf5560a68a7805b4d7fbb4c7f03ed8acf49f60118a',1,'libcomp::LobbyConnection']]],
+  ['mooch_5fpartner_5fdead',['MOOCH_PARTNER_DEAD',['../ErrorCodes_8h.html#a407a8b14fbe4457dcd19565aacde2524a9a7c29557a07d2c3dc8e5638bc49f053',1,'ErrorCodes.h']]],
+  ['mooch_5fpartner_5ffamiliarity',['MOOCH_PARTNER_FAMILIARITY',['../ErrorCodes_8h.html#a407a8b14fbe4457dcd19565aacde2524ab993631cbc9169dbbb92162be91fb692',1,'ErrorCodes.h']]],
+  ['mooch_5fpartner_5fmissing',['MOOCH_PARTNER_MISSING',['../ErrorCodes_8h.html#a407a8b14fbe4457dcd19565aacde2524a7061ae08fb1ad16e4cd69bfb91551dcb',1,'ErrorCodes.h']]],
+  ['mooch_5fpartner_5ftoo_5ffar',['MOOCH_PARTNER_TOO_FAR',['../ErrorCodes_8h.html#a407a8b14fbe4457dcd19565aacde2524a9fb0c5c12c77133a41e3e0016f8883e4',1,'ErrorCodes.h']]],
+  ['mount_5fdemon_5fcondition',['MOUNT_DEMON_CONDITION',['../ErrorCodes_8h.html#a407a8b14fbe4457dcd19565aacde2524a5ec195b773d15e74820598fde3e7d16b',1,'ErrorCodes.h']]],
+  ['mount_5fdemon_5finvalid',['MOUNT_DEMON_INVALID',['../ErrorCodes_8h.html#a407a8b14fbe4457dcd19565aacde2524a82dab7b1328dcd8722034f669c3b9531',1,'ErrorCodes.h']]],
+  ['mount_5fitem_5fdurability',['MOUNT_ITEM_DURABILITY',['../ErrorCodes_8h.html#a407a8b14fbe4457dcd19565aacde2524a147b2f852c2ff971e13e0e8723ab2bae',1,'ErrorCodes.h']]],
+  ['mount_5fitem_5fmissing',['MOUNT_ITEM_MISSING',['../ErrorCodes_8h.html#a407a8b14fbe4457dcd19565aacde2524a41b1e4a5fa8bff2c831a23e4829c0f34',1,'ErrorCodes.h']]],
+  ['mount_5fmove_5frestrict',['MOUNT_MOVE_RESTRICT',['../ErrorCodes_8h.html#a407a8b14fbe4457dcd19565aacde2524a953bc1a5e6d41c938bef8cde32e21805',1,'ErrorCodes.h']]],
+  ['mount_5fother_5fskill_5frestrict',['MOUNT_OTHER_SKILL_RESTRICT',['../ErrorCodes_8h.html#a407a8b14fbe4457dcd19565aacde2524a885ff0e25f7290d0ed8472216fefcfa2',1,'ErrorCodes.h']]],
+  ['mount_5fsummon_5frestrict',['MOUNT_SUMMON_RESTRICT',['../ErrorCodes_8h.html#a407a8b14fbe4457dcd19565aacde2524a7f90ee22895b59f177336c0693d0ecf9',1,'ErrorCodes.h']]],
+  ['mount_5ftoo_5ffar',['MOUNT_TOO_FAR',['../ErrorCodes_8h.html#a407a8b14fbe4457dcd19565aacde2524abc0c094b78ccf87d61367b8e284a235d',1,'ErrorCodes.h']]],
+  ['must_5freauthorize_5faccount',['MUST_REAUTHORIZE_ACCOUNT',['../ErrorCodes_8h.html#a2cf7f25f3a3bc56e70c6f1ae0cc8323ba5d5597692ee9ee9eac09dbfc1d8d250e',1,'ErrorCodes.h']]]
+];

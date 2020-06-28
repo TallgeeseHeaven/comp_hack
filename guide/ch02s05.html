@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Website with PHP &amp; Nginx</title><link rel="stylesheet" type="text/css" href="static/docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="home" href="index.html" title="COMP_hack: The Definitive Guide" /><link rel="up" href="ch02.html" title="Chapter 2. Server Setup" /><link rel="prev" href="ch02s04.html" title="Client Updater with Nginx" /><link rel="next" href="ch02s06.html" title="Configuration Files" /></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Website with PHP &amp; Nginx</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02s04.html">Prev</a> </td><th width="60%" align="center">Chapter 2. Server Setup</th><td width="20%" align="right"> <a accesskey="n" href="ch02s06.html">Next</a></td></tr></table><hr /></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp46923513158064"></a>Website with PHP &amp; Nginx</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923514883600"></a>Overview</h3></div></div></div><p>
+	This section of the guide will describe installation and setup of a website server software on an Ubuntu 16.04 LTS (<a class="ulink" href="https://www.ubuntu.com" target="_top">https://www.ubuntu.com</a>) system with Nginx, PHP and MariaDB. Installation on other systems should be possible and this guide could be adapted for such a system; however, installation on these systems won't be described here. Similarly, DNS setup, connecting to and maintaining a Linux server, basic Linux commands, basic SQL and web development are out of the scope of this document. Please look elsewhere online for an excellent selection of guides, tutorials and videos on these topics.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923512360704"></a>Installing Nginx</h3></div></div></div><p>
+	You just need to install the package as follows:
+</p><pre class="programlisting">
+sudo apt-get update
+sudo apt-get install nginx
+</pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923516687792"></a>Installing PHP</h3></div></div></div><p>
+    The server needs a new version of PHP (7.1+) and can be installed from a PPA. Here is how:
+</p><pre class="programlisting">
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt-get install php7.1-fpm php7.1-cli php7.1-mcrypt php7.1-gd php7.1-mysql php7.1-pgsql php7.1-imap php7.1-memcached
+sudo apt-get install php7.1-mbstring php7.1-xml php7.1-curl php7.1-bcmath php7.1-sqlite3 php7.1-xdebug
+</pre><p>
+    Next, install the PHP package manager called composer:
+</p><pre class="programlisting">
+php -r "readfile('http://getcomposer.org/installer');" | sudo php -- --install-dir=/usr/bin/ --filename=composer
+</pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923512880976"></a>Installing MariaDB</h3></div></div></div><p>
+    The website software uses Laravel. Laravel needs a new version of MariaDB (10.2+) so this must also be installed from a PPA. Here is how to install the latest version:
+</p><pre class="programlisting">
+sudo apt-get install software-properties-common
+sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
+sudo add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://sfo1.mirrors.digitalocean.com/mariadb/repo/10.2/ubuntu xenial main'
+sudo apt-get update
+sudo apt-get install mariadb-server
+</pre><p>
+    Next you should enable root access again. To do this edit <span class="emphasis"><em>/etc/mysql/mariadb.conf.d/50-server.cnf</em></span> and add the following in the <span class="emphasis"><em>[mysqld]</em></span> section:
+</p><pre class="programlisting">
+plugin-load-add = auth_socket.so
+</pre><p>
+    Now restart MariaDB and open the MariaDB console:
+</p><pre class="programlisting">
+sudo systemctl restart mariadb.service
+sudo mysql -u root
+</pre><p>
+    Lastly create the account and database to be used by the website. Remember to change the password (and the username and database name if you want):
+</p><pre class="programlisting">
+CREATE USER 'compsite'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON comp_site.* TO 'compsite'@'localhost';
+CREATE DATABASE comp_site CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+</pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923513991904"></a>Website Install</h3></div></div></div><p>
+	This will install the develop branch of the website. This is bleeding edge and may break. Once it's stable this will be updated to describe how to use a released version. This first section of commands will checkout the website files, install the needed PHP dependencies, generate an application key, and copy the default configuration. Do <span class="emphasis"><em>not</em></span> re-run the key generation command or wipe out your <span class="emphasis"><em>.env</em></span> file as this may break account logins. Run these commands for a fresh install:
+</p><pre class="programlisting">
+sudo chown www-data:www-data /var/www/html
+sudo rm /var/www/html/*
+cd /var/www
+sudo -u www-data -H git clone https://github.com/comphack/website.git html
+cd /var/www/html
+sudo -u www-data -H composer install --optimize-autoloader
+sudo -u www-data -H cp .env.example .env
+sudo -u www-data -H php artisan key:generate
+sudo -u www-data -H nano .env
+</pre><p>
+    Now edit the <span class="emphasis"><em>.env</em></span> file for your site configuration. The important options to change are <span class="emphasis"><em>APP_URL</em></span>, <span class="emphasis"><em>DB_DATABASE</em></span>, <span class="emphasis"><em>DB_USERNAME</em></span>, <span class="emphasis"><em>DB_PASSWORD</em></span> and <span class="emphasis"><em>COMP_API</em></span>. The <span class="emphasis"><em>COMP_API</em></span> points to the channel server on the same server. This may need to be changed if the website is located on a different server.
+</p><pre class="programlisting">
+APP_NAME=COMP_hack
+APP_ENV=production
+APP_KEY=
+APP_DEBUG=false
+APP_URL=https://www.myimagineserver.online
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=comp_site
+DB_USERNAME=compsite
+DB_PASSWORD=hackMe
+
+COMP_API=http://127.0.0.1:10999/api
+</pre><p>
+    After saving the configuration you must run the config cache command. Run this every time the <span class="emphasis"><em>.env</em></span> file has changed. For example, when you run the second command to setup the database, if you run into migration issues and the account information has not changed you may need to re-run the config cache command.
+</p><pre class="programlisting">
+sudo -u www-data -H php artisan config:cache
+sudo -u www-data -H php artisan migrate
+</pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923513501424"></a>Nginx Configuration</h3></div></div></div><p>
+	The files needed for the website are now in place. The next step is to configure the web server (Nginx). Create a new file or edit the file <span class="emphasis"><em>/etc/nginx/sites-available/default</em></span> with the following contents:
+</p><pre class="programlisting">
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    server_name www.myimagineserver.online;
+
+    root /var/www/html/public;
+
+    charset utf-8;
+
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
+
+    index index.html index.htm index.php;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php7.1-fpm.sock;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
+</pre><p>
+	Change the <span class="emphasis"><em>server_name</em></span> setting to match the domain name of your server and configure any sub-domain as needed. It may be a good idea to configure the site with SSL. This won't be described here. Now enable the configuration and restart Nginx:
+</p><pre class="programlisting">
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
+</pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923516747856"></a>Wrapping Up</h3></div></div></div><p>
+	The website should now be functional. It would be a good idea to configure the firewall to block access to port 10999 as it is no longer needed by the outside world. Nothing else should be connecting to this port or it may cause issues with the website. You can edit the <span class="emphasis"><em>ImagineUpdate.dat</em></span> to point to the server:
+</p><pre class="programlisting">
+[Setting]
+BaseURL1 = http://www.myimagineserver.online/updater
+Information = http:/updates.myimagineserver.online
+</pre><p>
+    To login to the site with an existing account (for example, the default admin account) you must use the claim form. For new accounts use the register function on the site. Go here to claim (fixing your domain name): http://www.myimagineserver.online/claim
+</p><p>
+    Finally, you should point the client <span class="emphasis"><em>webaccess.sdat</em></span> to the website instead (so you may block access to port 10999 and still use the web-based login). See the updater section for how to edit this file and push the new version. Here is what the configuration may look like:
+</p><pre class="programlisting">
+&lt;login = http://www.myimagineserver.online/webauth&gt;
+</pre></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02s04.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch02s06.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Client Updater with Nginx </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Configuration Files</td></tr></table></div></body></html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Background Music</title><link rel="stylesheet" type="text/css" href="static/docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="home" href="index.html" title="COMP_hack: The Definitive Guide" /><link rel="up" href="ch03.html" title="Chapter 3. Game Content" /><link rel="prev" href="ch03s01.html" title="Zone Definitions" /><link rel="next" href="ch04.html" title="Chapter 4. Hacker's Guide" /></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Background Music</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03s01.html">Prev</a> </td><th width="60%" align="center">Chapter 3. Game Content</th><td width="20%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr></table><hr /></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp46923518531088"></a>Background Music</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923507100432"></a>Adding and Editing Entries</h3></div></div></div><p>
+	To change or add a new sound into the game you must first edit the <span class="emphasis"><em>BinaryData\Client\CSoundData.bin</em></span> file with the <span class="emphasis"><em>comp_bdpatch</em></span> tool.
+</p><p>
+	In this example we will modify the background music for 3rd Home. First, dump the <span class="emphasis"><em>CSoundData.bin</em></span> file into XML form. The <span class="emphasis"><em>comp_bdpatch</em></span> tool should be run from the Windows Command Prompt or a Linux terminal. If you are using Windows you can drag and drop a file into the command prompt to simplify typing in the path. Here is how to dump the file into XML:
+</p><pre class="programlisting">comp_bdpatch load csound CSoundData.bin CSoundData.xml</pre><p>
+	Open up the XML file and you should see entries like the one below:
+</p><pre class="programlisting">
+&lt;object name="MiCSoundData"&gt;
+    &lt;member name="ID"&gt;6&lt;/member&gt;
+    &lt;member name="path"&gt;&lt;![CDATA[bgm_000_some_file.mp3]]&gt;&lt;/member&gt;
+    &lt;member name="location"&gt;SOUND_BGM&lt;/member&gt;
+    &lt;member name="unk2"&gt;0&lt;/member&gt;
+    &lt;member name="repeat"&gt;REPEAT_RANGE&lt;/member&gt;
+    &lt;member name="unk4"&gt;0&lt;/member&gt;
+    &lt;member name="volume"&gt;0.8000000119&lt;/member&gt;
+    &lt;member name="start"&gt;1891264&lt;/member&gt;
+    &lt;member name="stop"&gt;6964244&lt;/member&gt;
+&lt;/object&gt;
+</pre><p>
+	What follows is the description of some of these fields. If the field is unknown you should not change it.
+</p><p>
+	The <span class="emphasis"><em>path</em></span> can be to a WAV or MP3 file. Other formats may be supported but have not been tested. We have not tried adding a directory to the path but it will most likely work. This file can be encrypted or decrypted with the <span class="emphasis"><em>comp_bgmtool</em></span> application. Note that if you use this tool with the original client files you may have to modify the key and magic used and then rebuild the application. See the source code for why and how.
+</p><p>
+	The <span class="emphasis"><em>location</em></span> field determines where to load the sound file from. It has the two following locations to pick from:
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>SOUND_BGM - These files are stored in <span class="emphasis"><em>sound\bgm</em></span>.</p></li><li class="listitem"><p>SOUND_SE - These files are stored in <span class="emphasis"><em>sound\se</em></span>.</p></li></ul></div><p>
+</p><p>
+	The <span class="emphasis"><em>repeat</em></span> field determines how the music will repeat (if at all). It has the three following values to pick from:
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>REPEAT_NONE - The music will not repeat.</p></li><li class="listitem"><p>REPEAT_FULL - The music will repeat the entire file in a loop.</p></li><li class="listitem"><p>REPEAT_RANGE - The music will play the file from the beginning and then loop back to <span class="emphasis"><em>start</em></span> every time it reaches <span class="emphasis"><em>stop</em></span>.</p></li></ul></div><p>
+</p><p>
+	The <span class="emphasis"><em>volume</em></span> is a floating point number with 1.0 being 100% volume.
+</p><p>
+	The <span class="emphasis"><em>start</em></span> and <span class="emphasis"><em>stop</em></span> appear to be byte offsets for the repeat loop when <span class="emphasis"><em>repeat</em></span> is set to <span class="emphasis"><em>REPEAT_RANGE</em></span>. The majority of the following sections will be devoted to finding values to put here.
+</p><p>
+	Once you have edited or added an entry (with a unique ID) you may save the XML back into the <span class="emphasis"><em>CSoundData.bin</em></span> file as follows:
+</p><pre class="programlisting">comp_bdpatch save csound CSoundData.xml CSoundData.bin</pre><p>
+	If you add a new entry you must tell the client when to play the music/sound effect. For example, to change the background music or battle theme for a zone edit the <span class="emphasis"><em>BinaryData\Shield\ZoneData.sbin</em></span> file with <span class="emphasis"><em>comp_bdpatch</em></span>. Change the <span class="emphasis"><em>zoneSoundID</em></span> and/or <span class="emphasis"><em>battleSoundID</em></span> for the desired zone:
+</p><pre class="programlisting">
+&lt;member name="bgm"&gt;
+    &lt;object name="MiZoneBGMData"&gt;
+        &lt;member name="zoneSoundID"&gt;6&lt;/member&gt;
+        &lt;member name="battleSoundID"&gt;60&lt;/member&gt;
+    &lt;/object&gt;
+&lt;/member&gt;
+</pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923517059360"></a>Background Music with Audacity</h3></div></div></div><p>
+	This method of setting the repeat values does not require proprietary software but does not work very well for MP3 files so you may have to save the music as a WAV file. In any case open your file in Audacity:
+</p><div class="figure"><a id="idp46923514314320"></a><p class="title"><strong>Figure 3.1. Using Audacity to loop background music.</strong></p><div class="figure-contents"><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" style="cellpadding: 0; cellspacing: 0;" width="90%"><tr><td><img src="static/bgm_audacity.png" width="100%" alt="Using Audacity to loop background music." /></td></tr></table></div></div></div><br class="figure-break" /><p>
+	There is two important things to note in this picture. First, the format of the data is 44100 Hz Stereo 32-bit PCM. The 32-bit means each sample is 4 bytes and the 44100 Hz means there is 44100 samples for every second of audio. Stereo means this has both a left and right sample. Changing these parameters may change the <span class="emphasis"><em>start</em></span> and <span class="emphasis"><em>stop</em></span> values in the XML by some factor. In this example you multiply the sample number by 4 to get the <span class="emphasis"><em>start</em></span> and <span class="emphasis"><em>stop</em></span> values. You may have to experiment if your audio is in a different format.
+</p><p>
+	Second is the start and end selection on the bottom of the screen. This was changed from a time format to the number of samples. The samples are directly related to the <span class="emphasis"><em>start</em></span> and <span class="emphasis"><em>stop</em></span> fields in the XML.
+</p><p>
+	Find the sample range that repeats the music with no noticeable glitches in the audio. To help there is a loop play feature in Audacity. Once you have found the samples and multiplied them by the correct factor (4 in this example), save them into the XML and re-generate the <span class="emphasis"><em>CSoundData.bin</em></span> file. Try out the audio in the client and enjoy.
+</p><p>
+	If you really want to try looping an MP3 with Audacity you can try this formula:
+</p><p>
+	((sample / rate) * cbr) / 8 + offset
+</p><p>
+	The value for <span class="emphasis"><em>start</em></span> and <span class="emphasis"><em>stop</em></span> appear to be a byte offset into the file where the audio is. As such, there is a fixed <span class="emphasis"><em>offset</em></span> of bytes where the audio starts. For WAV this is either not needed or so small that it doesn't seem to matter. For MP3 this can be in the thousands and the Miles tool in the section below actually tells you what it is. If you don't have this tool you'll need to guess. The <span class="emphasis"><em>rate</em></span> is the sample rate of the audio (in this example it was 44100 Hz). The <span class="emphasis"><em>cbr</em></span> is the bit rate. Obviously I used a constant bit rate here as a variable bit rate will make this very difficult. The bit rate should be expressed in bits so in our example a rate of 320 kbps would be a value of 320000 in the equation.
+</p><p>
+	This equation gets the loop close but not quite right. Using this method may take a lot of trial and error with the client. If you have a better method of doing this, please let us know.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923521117360"></a>Background Music with Miles Sound Player</h3></div></div></div><p>
+	The client is using the Miles sound system library so using their tools would be the easiest way to do loops. If memory serves, this tool used to be a download on the Miles website. This was many years ago so your luck may vary. If you have access to this tool it makes the process super simple. Here is what it looks like:
+</p><div class="figure"><a id="idp46923521119968"></a><p class="title"><strong>Figure 3.2. Using Miles Sound Player to loop background music.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="static/bgm_miles.png" alt="Using Miles Sound Player to loop background music." /></div></div></div><br class="figure-break" /><p>
+	The wave form on the bottom of the screen can be searched with the slider up top or you can drag it. You can zoom with the scroll wheel. When you left or right click on one of the vertical lines it will place the start or stop time at that point in the audio. You can then play the music and confirm your loop sounds okay. Once you have a good loop just copy these two values from the top left of the waveform into your XML and try it out in the client!
+</p></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch03s01.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch03.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Zone Definitions </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 4. Hacker's Guide</td></tr></table></div></body></html>

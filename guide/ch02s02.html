@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Linux Install &amp; Setup</title><link rel="stylesheet" type="text/css" href="static/docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="home" href="index.html" title="COMP_hack: The Definitive Guide" /><link rel="up" href="ch02.html" title="Chapter 2. Server Setup" /><link rel="prev" href="ch02s01.html" title="Requirements" /><link rel="next" href="ch02s03.html" title="Building from Source" /></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Linux Install &amp; Setup</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02s01.html">Prev</a> </td><th width="60%" align="center">Chapter 2. Server Setup</th><td width="20%" align="right"> <a accesskey="n" href="ch02s03.html">Next</a></td></tr></table><hr /></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp46923518258784"></a>Linux Install &amp; Setup</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923521516464"></a>Overview</h3></div></div></div><p>
+	This section of the guide will describe installation and setup of the server on an Ubuntu 16.04 LTS (<a class="ulink" href="https://www.ubuntu.com" target="_top">https://www.ubuntu.com</a>) system. Installation on other Linux systems should be possible and this guide could be adapted for such a system; however, installation on these systems won't be described here. Similarly, DNS setup, connecting to and maintaining a Linux server, basic Linux commands, basic SQL and web development are out of the scope of this document. Please look elsewhere online for an excellent selection of guides, tutorials and videos on these topics.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923520406816"></a>Package Install</h3></div></div></div><p>
+	A packaged version of the server is available from this <a class="ulink" href="https://launchpad.net/~compomega/+archive/ubuntu/comphack" target="_top">Ubuntu PPA</a>. This guide will be using this PPA so if this does not work for your system, please see the section in this guide describing how to build the server from source. Install the package as follows:
+</p><pre class="programlisting">
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:compomega/comphack
+sudo apt-get update
+sudo apt-get install comphack
+</pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923516212416"></a>Server Data</h3></div></div></div><p>
+	Update a copy of the server data or create your own server data. You now want to upload these files to /var/lib/comp_hack/data and verify the permissions of the files. First install some utilities for zip and 7z files:
+</p><pre class="programlisting">
+sudo apt-get install unzip p7zip-full
+</pre><p>
+	Ensure the directory is created and owned by your account for simplicity:
+</p><pre class="programlisting">
+sudo mkdir /var/lib/comp_hack/data
+sudo chown `whoami`:`whoami` /var/lib/comp_hack/data
+</pre><p>
+	Extract the files and ensure they can be read by the <span class="emphasis"><em>comphack</em></span> user. Here is one way to do this:
+</p><pre class="programlisting">
+chmod -R g+rX,o+rX /var/lib/comp_hack/data
+ls -lh /var/lib/comp_hack/data
+</pre><p>
+	The directory contents should now look like this:
+</p><pre class="programlisting">
+drwxr-xr-x 2 bob bob 4.0K Apr  7 15:00 data
+drwxr-xr-x 2 bob bob  36K Apr  7 15:00 events
+drwxr-xr-x 2 bob bob 4.0K Apr  7 15:00 scripts
+drwxr-xr-x 2 bob bob 4.0K Apr  7 15:00 shops
+drwxr-xr-x 2 bob bob 4.0K Apr  7 15:00 tokusei
+drwxr-xr-x 2 bob bob  44K Apr  7 15:00 zones
+</pre><p>
+	This directory also needs the BinaryData directory from the client (re-encrypted with the COMP_hack key) and the QMP files from Map/Zone/Model (also from the client). They should follow the same path structure as the client. Create this directory and then upload the client files:
+</p><pre class="programlisting">
+mkdir -p /var/lib/comp_hack/data/Map/Zone/Model
+</pre><p>
+	To verify the contents you can run these two commands:
+</p><pre class="programlisting">
+ls -lh /var/lib/comp_hack/data/BinaryData/
+ls -lh /var/lib/comp_hack/data/Map/Zone/Model/ | head -n 3 | tail -n 2
+</pre><p>
+	You should see these directories in <span class="emphasis"><em>/var/lib/comp_hack/data/BinaryData</em></span>:
+</p><pre class="programlisting">
+drwxr-xr-x 2 bob bob 36K Apr  7 15:15 Client
+drwxr-xr-x 2 bob bob 20K Apr  7 15:15 Shield
+</pre><p>
+	You should see QMP files in <span class="emphasis"><em>/var/lib/comp_hack/data/Map/Zone/Model</em></span> like this:
+</p><pre class="programlisting">
+-rw-r--r-- 1 bob bob  2.2K Apr  7 15:16 ClientDebugMap.qmp
+-rw-r--r-- 1 bob bob   463 Apr  7 15:16 MA01_001_01.qmp
+</pre><p>Once done verify all files and directories will be readable by the <span class="emphasis"><em>comphack</em></span> user.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923521194784"></a>MariaDB Setup (Optional)</h3></div></div></div><p>
+	A production server should not use the default SQLite3 database. It's recommended to install MariaDB (a fork of MySQL) instead. This section will describe how to install and configure MariaDB. First, install the packages:
+</p><pre class="programlisting">
+sudo apt-get install mariadb-server mariadb-client
+</pre><p>
+	You can generate a password for the MariaDB user with pwgen:
+</p><pre class="programlisting">
+sudo apt-get install pwgen
+pwgen -s 30 1
+</pre><p>
+	Now connect to the MariaDB server with the root account so we can create the <span class="emphasis"><em>comphack</em></span> account:
+</p><pre class="programlisting">
+sudo mysql -u root
+</pre><p>
+	Run the following commands at the MariaDB prompt replacing any password with one generated above:
+</p><pre class="programlisting">
+CREATE USER 'comphack'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON comp_hack.* TO 'comphack'@'localhost';
+GRANT ALL PRIVILEGES ON world.* TO 'comphack'@'localhost';
+exit
+</pre><p>
+	To make things easier change the ownership of the server configuration to your local user account:
+</p><pre class="programlisting">
+sudo chown -R `whoami`:`whoami` /etc/comp_hack
+</pre><p>
+	Now edit <span class="emphasis"><em>/etc/comp_hack/lobby.xml</em></span> and change the database type to <span class="emphasis"><em>MARIADB</em></span>:
+</p><pre class="programlisting">
+&lt;member name="DatabaseType"&gt;MARIADB&lt;/member&gt;
+</pre><p>
+	While the file is open add a new section for the MariaDB configuration. Make sure to change the password to match the one generated above. This can go after the SQLite3 configuration:
+</p><pre class="programlisting">
+&lt;member name="MariaDBConfig"&gt;
+    &lt;object&gt;
+        &lt;member name="IP"&gt;127.0.0.1&lt;/member&gt;
+        &lt;member name="Username"&gt;comphack&lt;/member&gt;
+        &lt;member name="Password"&gt;password&lt;/member&gt;
+    &lt;/object&gt;
+&lt;/member&gt;
+</pre><p>
+	Open the file <span class="emphasis"><em>/etc/comp_hack/world.xml</em></span> and make the same database configuration changes.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923515712816"></a>Server Configuration</h3></div></div></div><p>
+	Only one configuration is required; however, this guide will walk you through a few more useful changes as well. To make the channel server connect-able you must change the external IP address in the channel configuration. You can determine the IP address of the server like so:
+</p><pre class="programlisting">
+dig +short myip.opendns.com @resolver1.opendns.com
+</pre><p>
+	Edit the file <span class="emphasis"><em>/etc/comp_hack/channel.xml</em></span> and add the external IP address setting to match the IP address of your server:
+</p><pre class="programlisting">
+&lt;member name="ExternalIP"&gt;127.1.2.3&lt;/member&gt;
+</pre><p>
+	While in this file you may also want to change the name of the channel:
+</p><pre class="programlisting">
+&lt;member name="Name"&gt;My Epic Channel&lt;/member&gt;
+</pre><p>
+	It may also be a good idea to change the name of the world in the <span class="emphasis"><em>/etc/comp_hack/world.xml</em></span> file:
+</p><pre class="programlisting">
+&lt;member name="Name"&gt;World of Awesomeness&lt;/member&gt;
+</pre><p>
+	Finally it is a good idea to change the initial admin account user name and/or password (other details could be useful to change as well) in the <span class="emphasis"><em>/etc/comp_hack/setup.xml</em></span> file:
+</p><pre class="programlisting">
+&lt;member name="Username"&gt;myaccount&lt;/member&gt;
+&lt;member name="Password"&gt;password&lt;/member&gt;
+</pre><p>
+	See the configuration section of this guide for a full list of configuration options and what they mean.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923515931904"></a>Starting the Server</h3></div></div></div><p>
+	The server components may be started individually:
+</p><pre class="programlisting">
+sudo systemctl start comp_lobby
+sudo systemctl start comp_world
+sudo systemctl start comp_channel
+</pre><p>
+	Stopping the server components can be done by stopping all of the components in sequence or simply stopping the lobby component:
+</p><pre class="programlisting">
+sudo systemctl stop comp_channel
+sudo systemctl stop comp_world
+sudo systemctl stop comp_lobby
+</pre><p>
+	If the channel server component is started it will start the lobby and world first:
+</p><pre class="programlisting">
+sudo systemctl start comp_channel
+</pre><p>
+	The status of the servers can be shown as well:
+</p><pre class="programlisting">
+sudo systemctl status comp_lobby
+</pre><p>
+	Looking at the status of the server components or the log files in <span class="emphasis"><em>/var/log/comp_hack</em></span> is very important if the server components are not starting or functioning properly.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923521966576"></a>Connecting to the Server</h3></div></div></div><p>
+	To connect to the server with a client you must create two files: <span class="emphasis"><em>webaccess.sdat</em></span> and <span class="emphasis"><em>ImagineClient.dat</em></span>. To create the <span class="emphasis"><em>webaccess.sdat</em></span> file, first create a file called <span class="emphasis"><em>webaccess.dat</em></span> with the contents below. Be sure to change the domain name as well as the protocol if you are using https instead.
+</p><pre class="programlisting">
+&lt;dbnet = http://www.myimagineserver.online/index/auth?user_id=%s&amp;user_password=%s&amp;character_name=%s&amp;world_id=%d&gt;
+&lt;dcoshop = http://www.myimagineserver.online/index/auth?user_id=%s&amp;user_password=%s&amp;character_name=%s&amp;world_id=%d&amp;ref=shop&gt;
+&lt;slot = http://www.myimagineserver.online/index/auth?ref=ddslot&amp;user_id=%s&amp;user_password=%s&amp;character_name=%s&amp;world_id=%d&amp;session_id=%s&amp;mid=%d&gt;
+&lt;roulette = http://www.myimagineserver.online/index/auth?ref=jr&amp;user_id=%s&amp;user_password=%s&amp;character_name=%s&amp;world_id=%d&amp;session_id=%s&gt;
+&lt;videogame = http://www.myimagineserver.online/index/auth?ref=tower&amp;user_id=%s&amp;user_password=%s&amp;character_name=%s&amp;world_id=%d&amp;session_id=%s&amp;mid=%d&gt;
+&lt;slotvip = http://www.myimagineserver.online/index/auth?ref=ddslotv&amp;user_id=%s&amp;user_password=%s&amp;character_name=%s&amp;world_id=%d&amp;session_id=%s&amp;mid=%d&gt;
+&lt;roulettevip = http://www.myimagineserver.online/index/auth?ref=jrv&amp;user_id=%s&amp;user_password=%s&amp;character_name=%s&amp;world_id=%d&amp;session_id=%s&gt;
+&lt;videogamevip = http://www.myimagineserver.online/index/auth?ref=towerv&amp;user_id=%s&amp;user_password=%s&amp;character_name=%s&amp;world_id=%d&amp;session_id=%s&amp;mid=%d&gt;
+&lt;kino = http://www.myimagineserver.online/index/auth?ref=casino&amp;user_id=%s&amp;user_password=%s&amp;character_name=%s&amp;world_id=%d&amp;session_id=%s&gt;
+&lt;login = http://www.myimagineserver.online:10999/&gt;
+&lt;birthday = http://www.myimagineserver.online/index/auth?user_id=%s&amp;user_password=%s&gt;
+</pre><p>
+	Now encrypt the file:
+</p><pre class="programlisting">
+comp_encrypt webaccess.dat webaccess.sdat
+</pre><p>
+	The other file, <span class="emphasis"><em>ImagineClient.dat</em></span>, contains the lobby server to connect to. Change this as appropriate and save it as the <span class="emphasis"><em>ImagineClient.dat</em></span> file:
+</p><pre class="programlisting">
+-ip www.myimagineserver.online
+-port 10666
+</pre><p>
+	Place these two files into an install of the patched 1.666 client and it should now connect to your new server!
+</p></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02s01.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch02s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Requirements </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Building from Source</td></tr></table></div></body></html>

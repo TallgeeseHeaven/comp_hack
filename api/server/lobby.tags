@@ -1,0 +1,2277 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<tagfile>
+  <compound kind="file">
+    <name>AccountLogin.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/internal/</path>
+    <filename>AccountLogin_8cpp</filename>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+    <includes id="ManagerConnection_8h" name="ManagerConnection.h" local="yes" imported="no">ManagerConnection.h</includes>
+    <member kind="function">
+      <type>void</type>
+      <name>UpdateAccountLogin</name>
+      <anchorfile>AccountLogin_8cpp.html</anchorfile>
+      <anchor>a7f40007709d0d26073024c9c6365faa2</anchor>
+      <arglist>(std::shared_ptr&lt; LobbyServer &gt; server, const std::shared_ptr&lt; objects::AccountLogin &gt; login)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>AccountLogout.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/internal/</path>
+    <filename>AccountLogout_8cpp</filename>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>AccountManager.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>AccountManager_8cpp</filename>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+    <includes id="ApiHandler_8h" name="ApiHandler.h" local="yes" imported="no">ApiHandler.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+    <includes id="LobbySyncManager_8h" name="LobbySyncManager.h" local="yes" imported="no">LobbySyncManager.h</includes>
+    <includes id="World_8h" name="World.h" local="yes" imported="no">World.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>AccountManager.h</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>AccountManager_8h</filename>
+    <class kind="class">lobby::AccountManager</class>
+    <namespace>lobby</namespace>
+  </compound>
+  <compound kind="file">
+    <name>ApiHandler.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>ApiHandler_8cpp</filename>
+    <includes id="ApiHandler_8h" name="ApiHandler.h" local="yes" imported="no">ApiHandler.h</includes>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="no" imported="no">AccountManager.h</includes>
+    <includes id="LobbySyncManager_8h" name="LobbySyncManager.h" local="yes" imported="no">LobbySyncManager.h</includes>
+    <includes id="ManagerConnection_8h" name="ManagerConnection.h" local="yes" imported="no">ManagerConnection.h</includes>
+    <includes id="World_8h" name="World.h" local="yes" imported="no">World.h</includes>
+    <member kind="define">
+      <type>#define</type>
+      <name>MAX_PAYLOAD</name>
+      <anchorfile>ApiHandler_8cpp.html</anchorfile>
+      <anchor>aa7a7521abb3a3664218d8dc0e3759f0f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>ApiHandler.h</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>ApiHandler_8h</filename>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+    <class kind="class">lobby::ApiHandler</class>
+    <class kind="class">lobby::ApiSession</class>
+    <class kind="class">lobby::WebGameApiSession</class>
+    <namespace>libobjects</namespace>
+    <namespace>lobby</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Auth.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/game/</path>
+    <filename>Auth_8cpp</filename>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+    <includes id="ManagerConnection_8h" name="ManagerConnection.h" local="yes" imported="no">ManagerConnection.h</includes>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>CompleteLogin</name>
+      <anchorfile>Auth_8cpp.html</anchorfile>
+      <anchor>adf18f0ce8f367c4c8120ba149454caaf</anchor>
+      <arglist>(libcomp::ManagerPacket *pPacketManager, const std::shared_ptr&lt; LobbyServer &gt; &amp;server, const std::shared_ptr&lt; libcomp::TcpConnection &gt; &amp;connection, const libcomp::String &amp;sid, const libcomp::String &amp;username, const libcomp::String &amp;machineUUID={})</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>LoginAuthError</name>
+      <anchorfile>Auth_8cpp.html</anchorfile>
+      <anchor>a5c05f60e0aed8e99c02edb91aead4943</anchor>
+      <arglist>(const std::shared_ptr&lt; libcomp::TcpConnection &gt; &amp;connection, ErrorCodes_t errorCode)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>NoWebAuthParse</name>
+      <anchorfile>Auth_8cpp.html</anchorfile>
+      <anchor>ae1ee945e27a6b220f59493bba9d77b3e</anchor>
+      <arglist>(libcomp::ManagerPacket *pPacketManager, const std::shared_ptr&lt; LobbyServer &gt; &amp;server, const std::shared_ptr&lt; libcomp::TcpConnection &gt; &amp;connection, libcomp::ReadOnlyPacket &amp;p, const libcomp::String &amp;username)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>WebAuthParse</name>
+      <anchorfile>Auth_8cpp.html</anchorfile>
+      <anchor>a7301e986b716faa5c1be0f389fc6f036</anchor>
+      <arglist>(libcomp::ManagerPacket *pPacketManager, const std::shared_ptr&lt; LobbyServer &gt; &amp;server, const std::shared_ptr&lt; libcomp::TcpConnection &gt; &amp;connection, libcomp::ReadOnlyPacket &amp;p, const libcomp::String &amp;username)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>CharacterList.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/game/</path>
+    <filename>CharacterList_8cpp</filename>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="no" imported="no">LobbyServer.h</includes>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+    <includes id="LobbyClientConnection_8h" name="LobbyClientConnection.h" local="yes" imported="no">LobbyClientConnection.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>ClientState.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>ClientState_8cpp</filename>
+    <includes id="ClientState_8h" name="ClientState.h" local="yes" imported="no">ClientState.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>ClientState.h</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>ClientState_8h</filename>
+    <class kind="class">lobby::ClientState</class>
+    <namespace>lobby</namespace>
+  </compound>
+  <compound kind="file">
+    <name>CreateCharacter.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/game/</path>
+    <filename>CreateCharacter_8cpp</filename>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+    <includes id="LobbyClientConnection_8h" name="LobbyClientConnection.h" local="yes" imported="no">LobbyClientConnection.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>DataSync.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/internal/</path>
+    <filename>DataSync_8cpp</filename>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+    <includes id="LobbySyncManager_8h" name="LobbySyncManager.h" local="yes" imported="no">LobbySyncManager.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>DeleteCharacter.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/game/</path>
+    <filename>DeleteCharacter_8cpp</filename>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+    <includes id="LobbyClientConnection_8h" name="LobbyClientConnection.h" local="yes" imported="no">LobbyClientConnection.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>ImportHandler.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>ImportHandler_8cpp</filename>
+    <includes id="ImportHandler_8h" name="ImportHandler.h" local="yes" imported="no">ImportHandler.h</includes>
+    <includes id="World_8h" name="World.h" local="yes" imported="no">World.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>ImportHandler.h</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>ImportHandler_8h</filename>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+    <class kind="class">lobby::ImportHandler</class>
+    <namespace>lobby</namespace>
+  </compound>
+  <compound kind="file">
+    <name>LobbyClientConnection.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>LobbyClientConnection_8cpp</filename>
+    <includes id="LobbyClientConnection_8h" name="LobbyClientConnection.h" local="yes" imported="no">LobbyClientConnection.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>LobbyClientConnection.h</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>LobbyClientConnection_8h</filename>
+    <includes id="ClientState_8h" name="ClientState.h" local="yes" imported="no">ClientState.h</includes>
+    <class kind="class">lobby::LobbyClientConnection</class>
+    <namespace>lobby</namespace>
+    <member kind="function" static="yes">
+      <type>static std::shared_ptr&lt; objects::LobbyConfig &gt;</type>
+      <name>config</name>
+      <anchorfile>namespacelobby.html</anchorfile>
+      <anchor>aff2ff804fa0f4cd1243e1b5ece6930df</anchor>
+      <arglist>(libcomp::ManagerPacket *pPacketManager)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static ClientState *</type>
+      <name>state</name>
+      <anchorfile>namespacelobby.html</anchorfile>
+      <anchor>af9049744f9d8022218afee271c786a6b</anchor>
+      <arglist>(const std::shared_ptr&lt; libcomp::TcpConnection &gt; &amp;connection)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>LobbyServer.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>LobbyServer_8cpp</filename>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+    <includes id="LobbyClientConnection_8h" name="LobbyClientConnection.h" local="yes" imported="no">LobbyClientConnection.h</includes>
+    <includes id="LobbySyncManager_8h" name="LobbySyncManager.h" local="yes" imported="no">LobbySyncManager.h</includes>
+    <includes id="ManagerClientPacket_8h" name="ManagerClientPacket.h" local="yes" imported="no">ManagerClientPacket.h</includes>
+    <includes id="ManagerConnection_8h" name="ManagerConnection.h" local="yes" imported="no">ManagerConnection.h</includes>
+    <includes id="Packets_8h" name="Packets.h" local="yes" imported="no">Packets.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>LobbyServer.h</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>LobbyServer_8h</filename>
+    <includes id="World_8h" name="World.h" local="yes" imported="no">World.h</includes>
+    <class kind="class">lobby::LobbyServer</class>
+    <namespace>lobby</namespace>
+  </compound>
+  <compound kind="file">
+    <name>LobbySyncManager.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>LobbySyncManager_8cpp</filename>
+    <includes id="LobbySyncManager_8h" name="LobbySyncManager.h" local="yes" imported="no">LobbySyncManager.h</includes>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+    <includes id="ManagerConnection_8h" name="ManagerConnection.h" local="yes" imported="no">ManagerConnection.h</includes>
+    <namespace>lobby</namespace>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>LobbySyncManager::Update&lt; objects::Account &gt;</name>
+      <anchorfile>namespacelobby.html</anchorfile>
+      <anchor>a337afc042fa68a33cc5bd2103754cce2</anchor>
+      <arglist>(const libcomp::String &amp;type, const std::shared_ptr&lt; libcomp::Object &gt; &amp;obj, bool isRemove, const libcomp::String &amp;source)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>LobbySyncManager::Update&lt; objects::Character &gt;</name>
+      <anchorfile>namespacelobby.html</anchorfile>
+      <anchor>a39bab11f5f67a8b591af2ce0666c0a96</anchor>
+      <arglist>(const libcomp::String &amp;type, const std::shared_ptr&lt; libcomp::Object &gt; &amp;obj, bool isRemove, const libcomp::String &amp;source)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>LobbySyncManager::Update&lt; objects::CharacterProgress &gt;</name>
+      <anchorfile>namespacelobby.html</anchorfile>
+      <anchor>a2cead30e6f926596fbc7d53b3623a192</anchor>
+      <arglist>(const libcomp::String &amp;type, const std::shared_ptr&lt; libcomp::Object &gt; &amp;obj, bool isRemove, const libcomp::String &amp;source)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>LobbySyncManager.h</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>LobbySyncManager_8h</filename>
+    <class kind="class">lobby::LobbySyncManager</class>
+    <namespace>lobby</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Login.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/game/</path>
+    <filename>Login_8cpp</filename>
+    <includes id="LobbyClientConnection_8h" name="LobbyClientConnection.h" local="yes" imported="no">LobbyClientConnection.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>LoginError</name>
+      <anchorfile>Login_8cpp.html</anchorfile>
+      <anchor>a856558f4029b2fe1422581c6fddd269f</anchor>
+      <arglist>(const std::shared_ptr&lt; libcomp::TcpConnection &gt; &amp;connection, ErrorCodes_t errorCode)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>LoginHandlerThread.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>LoginHandlerThread_8cpp</filename>
+    <includes id="LoginHandlerThread_8h" name="LoginHandlerThread.h" local="yes" imported="no">LoginHandlerThread.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>LoginHandlerThread.h</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>LoginHandlerThread_8h</filename>
+    <class kind="class">lobby::LoginHandlerThread</class>
+    <namespace>lobby</namespace>
+  </compound>
+  <compound kind="file">
+    <name>LoginWebHandler.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>LoginWebHandler_8cpp</filename>
+    <includes id="LoginWebHandler_8h" name="LoginWebHandler.h" local="yes" imported="no">LoginWebHandler.h</includes>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>LoginWebHandler.h</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>LoginWebHandler_8h</filename>
+    <includes id="LoginHandlerThread_8h" name="LoginHandlerThread.h" local="yes" imported="no">LoginHandlerThread.h</includes>
+    <class kind="class">lobby::LoginHandler</class>
+    <namespace>lobby</namespace>
+  </compound>
+  <compound kind="file">
+    <name>main.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>main_8cpp</filename>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+    <includes id="ApiHandler_8h" name="ApiHandler.h" local="yes" imported="no">ApiHandler.h</includes>
+    <includes id="ImportHandler_8h" name="ImportHandler.h" local="yes" imported="no">ImportHandler.h</includes>
+    <includes id="LoginWebHandler_8h" name="LoginWebHandler.h" local="yes" imported="no">LoginWebHandler.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+    <member kind="function">
+      <type>int</type>
+      <name>main</name>
+      <anchorfile>main_8cpp.html</anchorfile>
+      <anchor>ac0f2228420376f4db7e1274f2b41667c</anchor>
+      <arglist>(int argc, const char *argv[])</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>MainPage.dox</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/doc/</path>
+    <filename>MainPage_8dox</filename>
+  </compound>
+  <compound kind="file">
+    <name>ManagerClientPacket.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>ManagerClientPacket_8cpp</filename>
+    <includes id="ManagerClientPacket_8h" name="ManagerClientPacket.h" local="yes" imported="no">ManagerClientPacket.h</includes>
+    <includes id="LobbyClientConnection_8h" name="LobbyClientConnection.h" local="no" imported="no">LobbyClientConnection.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>ManagerClientPacket.h</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>ManagerClientPacket_8h</filename>
+    <class kind="class">lobby::ManagerClientPacket</class>
+    <namespace>lobby</namespace>
+  </compound>
+  <compound kind="file">
+    <name>ManagerConnection.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>ManagerConnection_8cpp</filename>
+    <includes id="ManagerConnection_8h" name="ManagerConnection.h" local="yes" imported="no">ManagerConnection.h</includes>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>ManagerConnection.h</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>ManagerConnection_8h</filename>
+    <includes id="World_8h" name="World.h" local="no" imported="no">World.h</includes>
+    <includes id="LobbyClientConnection_8h" name="LobbyClientConnection.h" local="yes" imported="no">LobbyClientConnection.h</includes>
+    <class kind="class">lobby::ManagerConnection</class>
+    <namespace>lobby</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Packets.h</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>Packets_8h</filename>
+    <namespace>lobby</namespace>
+    <namespace>lobby::Parsers</namespace>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>aca2e41cdd31bda73ee3462d9a1e98a2a</anchor>
+      <arglist>(Login)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a31e6cbf7a170fc9ba06132c87c95b560</anchor>
+      <arglist>(Auth)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>ad3616aea5676ba5b6affee8709f86e93</anchor>
+      <arglist>(StartGame)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a7216fdada6c4a29614e1ca3d25556ae6</anchor>
+      <arglist>(CharacterList)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a239ec4c20de4e525e2ba750dd2b7f8b5</anchor>
+      <arglist>(WorldList)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>aaf82df6ceae524a51dd8cb9fe1604a3f</anchor>
+      <arglist>(CreateCharacter)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a210b63ff433620a14539d22320aca839</anchor>
+      <arglist>(DeleteCharacter)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a0a57a99d5ec1ab10a35a1f4224e93404</anchor>
+      <arglist>(QueryPurchaseTicket)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a481572863aed0c5635bdb6d7962b07b2</anchor>
+      <arglist>(PurchaseTicket)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a0c64ed240fe36bf30305ae66955b05d5</anchor>
+      <arglist>(SetWorldInfo)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a8b715b1581502e5eb469a8033ceca60a</anchor>
+      <arglist>(SetChannelInfo)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a4c3b75a48fe36d50672cef4740d17edd</anchor>
+      <arglist>(AccountLogin)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a263bad232bfe777a56ada3c6913e013c</anchor>
+      <arglist>(AccountLogout)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a36b2e7d6fa3a9592c2845ebb8cc915b1</anchor>
+      <arglist>(DataSync)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a674442c26da3f0cc743e18d56b4a3dc7</anchor>
+      <arglist>(WebGame)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>PurchaseTicket.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/game/</path>
+    <filename>PurchaseTicket_8cpp</filename>
+    <includes id="LobbyClientConnection_8h" name="LobbyClientConnection.h" local="no" imported="no">LobbyClientConnection.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>QueryPurchaseTicket.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/game/</path>
+    <filename>QueryPurchaseTicket_8cpp</filename>
+    <includes id="LobbyClientConnection_8h" name="LobbyClientConnection.h" local="no" imported="no">LobbyClientConnection.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>SetChannelInfo.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/internal/</path>
+    <filename>SetChannelInfo_8cpp</filename>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>SetWorldInfo.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/internal/</path>
+    <filename>SetWorldInfo_8cpp</filename>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+    <member kind="function">
+      <type>bool</type>
+      <name>SetWorldInfoFromPacket</name>
+      <anchorfile>SetWorldInfo_8cpp.html</anchorfile>
+      <anchor>ab730b49d6765a03d1d062421184fd736</anchor>
+      <arglist>(libcomp::ManagerPacket *pPacketManager, const std::shared_ptr&lt; libcomp::TcpConnection &gt; &amp;connection, libcomp::ReadOnlyPacket &amp;p)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>StartGame.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/game/</path>
+    <filename>StartGame_8cpp</filename>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+    <includes id="LobbyClientConnection_8h" name="LobbyClientConnection.h" local="yes" imported="no">LobbyClientConnection.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>WebGame.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/internal/</path>
+    <filename>WebGame_8cpp</filename>
+    <includes id="AccountManager_8h" name="AccountManager.h" local="yes" imported="no">AccountManager.h</includes>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+    <includes id="ManagerConnection_8h" name="ManagerConnection.h" local="yes" imported="no">ManagerConnection.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>World.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>World_8cpp</filename>
+    <includes id="World_8h" name="World.h" local="yes" imported="no">World.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>World.h</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>World_8h</filename>
+    <class kind="class">lobby::World</class>
+    <namespace>lobby</namespace>
+  </compound>
+  <compound kind="file">
+    <name>WorldList.cpp</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/game/</path>
+    <filename>WorldList_8cpp</filename>
+    <includes id="LobbyServer_8h" name="LobbyServer.h" local="yes" imported="no">LobbyServer.h</includes>
+  </compound>
+  <compound kind="namespace">
+    <name>libobjects</name>
+    <filename>namespacelibobjects.html</filename>
+  </compound>
+  <compound kind="namespace">
+    <name>lobby</name>
+    <filename>namespacelobby.html</filename>
+    <namespace>lobby::Parsers</namespace>
+    <class kind="class">lobby::AccountManager</class>
+    <class kind="class">lobby::ApiHandler</class>
+    <class kind="class">lobby::ApiSession</class>
+    <class kind="class">lobby::ClientState</class>
+    <class kind="class">lobby::ImportHandler</class>
+    <class kind="class">lobby::LobbyClientConnection</class>
+    <class kind="class">lobby::LobbyServer</class>
+    <class kind="class">lobby::LobbySyncManager</class>
+    <class kind="class">lobby::LoginHandler</class>
+    <class kind="class">lobby::LoginHandlerThread</class>
+    <class kind="class">lobby::ManagerClientPacket</class>
+    <class kind="class">lobby::ManagerConnection</class>
+    <class kind="class">lobby::WebGameApiSession</class>
+    <class kind="class">lobby::World</class>
+    <member kind="function" static="yes">
+      <type>static std::shared_ptr&lt; objects::LobbyConfig &gt;</type>
+      <name>config</name>
+      <anchorfile>namespacelobby.html</anchorfile>
+      <anchor>aff2ff804fa0f4cd1243e1b5ece6930df</anchor>
+      <arglist>(libcomp::ManagerPacket *pPacketManager)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>LobbySyncManager::Update&lt; objects::Account &gt;</name>
+      <anchorfile>namespacelobby.html</anchorfile>
+      <anchor>a337afc042fa68a33cc5bd2103754cce2</anchor>
+      <arglist>(const libcomp::String &amp;type, const std::shared_ptr&lt; libcomp::Object &gt; &amp;obj, bool isRemove, const libcomp::String &amp;source)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>LobbySyncManager::Update&lt; objects::Character &gt;</name>
+      <anchorfile>namespacelobby.html</anchorfile>
+      <anchor>a39bab11f5f67a8b591af2ce0666c0a96</anchor>
+      <arglist>(const libcomp::String &amp;type, const std::shared_ptr&lt; libcomp::Object &gt; &amp;obj, bool isRemove, const libcomp::String &amp;source)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>LobbySyncManager::Update&lt; objects::CharacterProgress &gt;</name>
+      <anchorfile>namespacelobby.html</anchorfile>
+      <anchor>a2cead30e6f926596fbc7d53b3623a192</anchor>
+      <arglist>(const libcomp::String &amp;type, const std::shared_ptr&lt; libcomp::Object &gt; &amp;obj, bool isRemove, const libcomp::String &amp;source)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static ClientState *</type>
+      <name>state</name>
+      <anchorfile>namespacelobby.html</anchorfile>
+      <anchor>af9049744f9d8022218afee271c786a6b</anchor>
+      <arglist>(const std::shared_ptr&lt; libcomp::TcpConnection &gt; &amp;connection)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lobby::AccountManager</name>
+    <filename>classlobby_1_1AccountManager.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>AccountManager</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>aad9aa34a8e0ca29a874b9a4616bba04f</anchor>
+      <arglist>(LobbyServer *pServer)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>ChannelToChannelSwitch</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a5b8f83454266f072f2e8ddcd8eeaff6b</anchor>
+      <arglist>(const libcomp::String &amp;username, int8_t channelID, uint32_t sessionKey)</arglist>
+    </member>
+    <member kind="function">
+      <type>ErrorCodes_t</type>
+      <name>CompleteChannelLogin</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a43f91a380391c0998a30d3e4b2ca51d8</anchor>
+      <arglist>(const libcomp::String &amp;username, int8_t worldID, int8_t channelID)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>DeleteCharacter</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a7fd008ae6cf3029a112fc27858a98908</anchor>
+      <arglist>(const std::shared_ptr&lt; objects::Account &gt; &amp;account, const std::shared_ptr&lt; objects::Character &gt; &amp;character)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>DeleteKillTimeExceededCharacters</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a3593b783b711b535f96e8d60142d0233</anchor>
+      <arglist>(uint8_t worldID)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>EndWebGameSession</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a82af335f157187819d2cf6119cb39568</anchor>
+      <arglist>(const libcomp::String &amp;username)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>ExpireSession</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a329949d18be857e347f406edf6c09e43</anchor>
+      <arglist>(const libcomp::String &amp;username, const libcomp::String &amp;sid)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::list&lt; std::shared_ptr&lt; objects::Character &gt; &gt;</type>
+      <name>GetCharactersForDeletion</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a7a70c18494642ad2abe44df0c17e1fb5</anchor>
+      <arglist>(const std::shared_ptr&lt; objects::Account &gt; &amp;account)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::shared_ptr&lt; objects::AccountLogin &gt;</type>
+      <name>GetUserLogin</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>aee0f697175d0ca91df06998eb6f69f25</anchor>
+      <arglist>(const libcomp::String &amp;username)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::list&lt; libcomp::String &gt;</type>
+      <name>GetUsersInWorld</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a0b48c1ff6fe3622d338ea00cff199bd2</anchor>
+      <arglist>(int8_t world, int8_t channel=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::shared_ptr&lt; WebGameApiSession &gt;</type>
+      <name>GetWebGameApiSession</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a2928260f4cde877f4dfbd772b147b3b2</anchor>
+      <arglist>(const libcomp::String &amp;username, const libcomp::String &amp;sessionID, const libcomp::String &amp;clientAddress)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>IsLoggedIn</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a348add21f1d08baa9d853b82f5537ea4</anchor>
+      <arglist>(const libcomp::String &amp;username, int8_t &amp;world)</arglist>
+    </member>
+    <member kind="function">
+      <type>ErrorCodes_t</type>
+      <name>LobbyLogin</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>aab59ed3553b6110113f11d7469a972db</anchor>
+      <arglist>(const libcomp::String &amp;username, const libcomp::String &amp;sid, libcomp::String &amp;sid2, int maxClients=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>ErrorCodes_t</type>
+      <name>LobbyLogin</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a333672b71513c4f855153d7096a4267c</anchor>
+      <arglist>(const libcomp::String &amp;username, libcomp::String &amp;sid2, int maxClients=0, const libcomp::String &amp;machineUUID={})</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>Logout</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a13800c00e58597e0e9502c75ff6af43a</anchor>
+      <arglist>(const libcomp::String &amp;username)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::list&lt; libcomp::String &gt;</type>
+      <name>LogoutUsersInWorld</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a27914f4bae80e0c3a693181024c45f39</anchor>
+      <arglist>(int8_t world, int8_t channel=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>SetCharacterOnAccount</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>aafe4f4fdf3503dd4fcfa4e142157d9c2</anchor>
+      <arglist>(const std::shared_ptr&lt; objects::Account &gt; &amp;account, const std::shared_ptr&lt; objects::Character &gt; &amp;character)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::shared_ptr&lt; objects::AccountLogin &gt;</type>
+      <name>StartChannelLogin</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>acae6513b7fa29b7656e21dd7ae086b7c</anchor>
+      <arglist>(const libcomp::String &amp;username, const std::shared_ptr&lt; objects::Character &gt; &amp;character)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>StartWebGameSession</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>ae93b06b341ceb3a28e19480a5f1b741f</anchor>
+      <arglist>(const libcomp::String &amp;username, const std::shared_ptr&lt; objects::WebGameSession &gt; &amp;gameSession)</arglist>
+    </member>
+    <member kind="function">
+      <type>ErrorCodes_t</type>
+      <name>SwitchToChannel</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>adb5a3c3e59d5f05eeb0f3e30b536e51f</anchor>
+      <arglist>(const libcomp::String &amp;username, int8_t worldID, int8_t channelID)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>UpdateKillTime</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a9dd7076287024bb68dffde40b22a4102</anchor>
+      <arglist>(const libcomp::String &amp;username, uint8_t cid, std::shared_ptr&lt; LobbyServer &gt; &amp;server)</arglist>
+    </member>
+    <member kind="function">
+      <type>ErrorCodes_t</type>
+      <name>WebAuthLogin</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>ad2a916b69b9fe879b1b03d1ef8b9cb6b</anchor>
+      <arglist>(const libcomp::String &amp;username, const libcomp::String &amp;password, uint32_t clientVersion, libcomp::String &amp;sid, bool checkPassword=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>ErrorCodes_t</type>
+      <name>WebAuthLoginApi</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>ad2ccb30fd18c18d0b5399ae4a07b9245</anchor>
+      <arglist>(const libcomp::String &amp;username, uint32_t clientVersion, libcomp::String &amp;sid)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>EraseLogin</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a9e9bcb292f83530e38a8afb1170145a1</anchor>
+      <arglist>(const libcomp::String &amp;username, bool updateDebugStatus=true)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>std::shared_ptr&lt; objects::AccountLogin &gt;</type>
+      <name>GetOrCreateLogin</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a2ad411371306466eb5630beee727ae0c</anchor>
+      <arglist>(const libcomp::String &amp;username)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>PrintAccounts</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a3bf4f89085ba58061337a65f511f7e0d</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>UnregisterMachineClient</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a63685768537a4a481c888b6a3ba49aec</anchor>
+      <arglist>(const libcomp::String &amp;username)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>UpdateDebugStatus</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>aace1acd1c797d50887b0bdeeebe12fd3</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::mutex</type>
+      <name>mAccountLock</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a7a3bb54c94d5c0038146e576b563656c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::unordered_map&lt; libcomp::String, std::shared_ptr&lt; objects::AccountLogin &gt; &gt;</type>
+      <name>mAccountMap</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a811b9e1e3b29d3ecdde0388fd921444b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::unordered_map&lt; libcomp::String, int32_t &gt;</type>
+      <name>mMachineUUIDs</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>af5b7e45499764dc48cf3c2c0e1299a85</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>LobbyServer *</type>
+      <name>mServer</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>ae05396ddf9c66af83da40830e0d96784</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::unordered_map&lt; libcomp::String, std::shared_ptr&lt; WebGameApiSession &gt; &gt;</type>
+      <name>mWebGameAPISessions</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>a95bc1938801ac90233fd8f71f114bb35</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::unordered_map&lt; libcomp::String, std::shared_ptr&lt; objects::WebGameSession &gt; &gt;</type>
+      <name>mWebGameSessions</name>
+      <anchorfile>classlobby_1_1AccountManager.html</anchorfile>
+      <anchor>ab3834f0309e09c9c2ee6762bd3d1b704</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lobby::ApiHandler</name>
+    <filename>classlobby_1_1ApiHandler.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ApiHandler</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a2fd288b77907e5528cc341bef8fe2ffe</anchor>
+      <arglist>(const std::shared_ptr&lt; objects::LobbyConfig &gt; &amp;config, const std::shared_ptr&lt; lobby::LobbyServer &gt; &amp;server)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~ApiHandler</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>ac89bbe6f245061610853733074d9b2da</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>handlePost</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a1cf13ea45691227f384a99f1c8338871</anchor>
+      <arglist>(CivetServer *pServer, struct mg_connection *pConnection)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>SetAccountManager</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a8ceb9721f920fceafaefc6555f8976a8</anchor>
+      <arglist>(AccountManager *pManager)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Account_ChangePassword</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>af57936a2d700d55884c3082f220ee35c</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Account_ClientLogin</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>af90975204b4ac76c8482f6fcfc673ef8</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Account_GetCP</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>af4e793fee0881db25e91c2101c1cc0cf</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Account_GetDetails</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a5dea46ea5da6736af59fe189b42e55bd</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Account_Register</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a3f3adc968c238a6a27995abf7624045a</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Admin_CreatePromo</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>abd8768ba17d36a223ae2f7ef23968cee</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Admin_DeleteAccount</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>ad432ab20179e6025aefdcf5bb40a3b72</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Admin_DeletePromo</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>aca6c1fffc01b4c8e6177d977e0984332</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Admin_GetAccount</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>ac87c7c29ce5f163941f42c17688b3032</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Admin_GetAccounts</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a3265d304647b807dc30833cbb8a7ef8a</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Admin_GetPromos</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a65173e8d76e3335c2013dbd3225fcab6</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Admin_KickPlayer</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a87a445669e18e687b2116a5e845bb81a</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Admin_MessageWorld</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a493b624bbae787eb352274d389831d4d</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Admin_Online</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a677871214a1fe886c998394abf452543</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Admin_PostItems</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>abc3e355552e420ef29aee38ad0f94bbc</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Admin_UpdateAccount</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>acb98ddd3290744762bdc3d95abdf5352</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Auth_Token</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>ac788d62e348fe99ba4a026e04cc4bd83</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Authenticate</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a2d6e9f02037efc9ab8fa40024506734c</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>std::shared_ptr&lt; libcomp::Database &gt;</type>
+      <name>GetDatabase</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a63041160eb6c1fbcd27c6926eab64625</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>uint32_t</type>
+      <name>Script_GetTimestamp</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a52daf85660e6ff4c9c657a890f869cf4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>Script_SetResponse</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>aa8a3e754854e37629a0d5e59817881af</anchor>
+      <arglist>(JsonBox::Object *response, const libcomp::String &amp;key, const libcomp::String &amp;value)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>WebApp_Request</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>aab4c4110fc75c0af13cca8144234c86b</anchor>
+      <arglist>(const libcomp::String &amp;appName, const libcomp::String &amp;method, const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>std::shared_ptr&lt; libcomp::Database &gt;</type>
+      <name>WebAppScript_GetLobbyDatabase</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a946e9c17871cef62b460e2d4c913f262</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>std::shared_ptr&lt; libcomp::Database &gt;</type>
+      <name>WebAppScript_GetWorldDatabase</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a4ad7e70770360e5045d64ab7da094aa0</anchor>
+      <arglist>(uint8_t worldID)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>WebGame_GetCoins</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a9dc7c6acbb233e69e7d50732f7f457a1</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>WebGame_Start</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a707f9260faf221b504fe5ccc7d00cf3a</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>WebGame_Update</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>ae5ab010aadea8fd8d878d4fb06e48bab</anchor>
+      <arglist>(const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>int64_t</type>
+      <name>WebGameScript_GetCoins</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>ab1d401b8f9a680af814674c4cd212eef</anchor>
+      <arglist>(const std::shared_ptr&lt; ApiSession &gt; &amp;session)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>std::shared_ptr&lt; libcomp::Database &gt;</type>
+      <name>WebGameScript_GetDatabase</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a5509ba4b717fd0a485c07ffa609208a3</anchor>
+      <arglist>(const std::shared_ptr&lt; ApiSession &gt; &amp;session, bool worldDB)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>int64_t</type>
+      <name>WebGameScript_GetSystemTime</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>afa831879434b44745548e4f94cd9d617</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>WebGameScript_UpdateCoins</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>ab99cb922273c47266314cd29a2ef82c3</anchor>
+      <arglist>(const std::shared_ptr&lt; ApiSession &gt; &amp;session, int64_t coins, bool adjust)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>std::shared_ptr&lt; objects::Account &gt;</type>
+      <name>GetAccount</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>aa929dc0ca635f5570d881a606a6f4b93</anchor>
+      <arglist>(const JsonBox::Object &amp;obj, JsonBox::Object &amp;response)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>bool</type>
+      <name>GetWebGameSession</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a3114f1407d9e6394669357eb084c4769</anchor>
+      <arglist>(JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session, std::shared_ptr&lt; objects::WebGameSession &gt; &amp;gameSession, std::shared_ptr&lt; World &gt; &amp;world)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>std::shared_ptr&lt; World &gt;</type>
+      <name>GetWorld</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a0cb251ad98b90c437637475f5d42be58</anchor>
+      <arglist>(const JsonBox::Object &amp;obj, JsonBox::Object &amp;response)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>bool</type>
+      <name>HaveUserLevel</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>ad4a32b24a14fc301f0d7d8f402babfe5</anchor>
+      <arglist>(JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session, uint32_t requiredLevel)</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>AccountManager *</type>
+      <name>mAccountManager</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a9de2e48878c72442d68d2a114b793e3f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::unordered_map&lt; libcomp::String, std::shared_ptr&lt; libcomp::ServerScript &gt; &gt;</type>
+      <name>mAppDefinitions</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a7d3fed2d034bf9463240033da8e6f5e0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::shared_ptr&lt; objects::LobbyConfig &gt;</type>
+      <name>mConfig</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>ac059d08a3747a4ab3b0743e51808bdd4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>libcomp::DefinitionManager *</type>
+      <name>mDefinitionManager</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a9b0d5fff5e812d9a60f2035bb8620162</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::unordered_map&lt; libcomp::String, std::shared_ptr&lt; libcomp::ServerScript &gt; &gt;</type>
+      <name>mGameDefinitions</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>abbfde3936f6407a12148c26c058465fc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::unordered_map&lt; libcomp::String, std::function&lt; bool(ApiHandler &amp;, const JsonBox::Object &amp;request, JsonBox::Object &amp;response, const std::shared_ptr&lt; ApiSession &gt; &amp;session)&gt; &gt;</type>
+      <name>mParsers</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>ac71a0832768a19273ff069fd5e2c4413</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::shared_ptr&lt; lobby::LobbyServer &gt;</type>
+      <name>mServer</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>ac6a0c885d27dc922c529583539492f69</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::mutex</type>
+      <name>mSessionLock</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a889852aeff86e77c6093a50af36eed88</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::unordered_map&lt; libcomp::String, std::shared_ptr&lt; ApiSession &gt; &gt;</type>
+      <name>mSessions</name>
+      <anchorfile>classlobby_1_1ApiHandler.html</anchorfile>
+      <anchor>a443a4b12370f7898ce555980be0af928</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lobby::ApiSession</name>
+    <filename>classlobby_1_1ApiSession.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ApiSession</name>
+      <anchorfile>classlobby_1_1ApiSession.html</anchorfile>
+      <anchor>a234aa4d0ad4e7b2ad98d8b36d8a8ed1e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~ApiSession</name>
+      <anchorfile>classlobby_1_1ApiSession.html</anchorfile>
+      <anchor>abc47cc20063516c583052fd45c176fbf</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>Reset</name>
+      <anchorfile>classlobby_1_1ApiSession.html</anchorfile>
+      <anchor>a65b94e4c1e355dbe2aeaed6ee14ae9c2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::shared_ptr&lt; objects::Account &gt;</type>
+      <name>account</name>
+      <anchorfile>classlobby_1_1ApiSession.html</anchorfile>
+      <anchor>a59b1166ec550ccf516e631f2126ee528</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>libcomp::String</type>
+      <name>challenge</name>
+      <anchorfile>classlobby_1_1ApiSession.html</anchorfile>
+      <anchor>aad9e785175a1df8582c881d83438db1d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>libcomp::String</type>
+      <name>clientAddress</name>
+      <anchorfile>classlobby_1_1ApiSession.html</anchorfile>
+      <anchor>a65fff1570d8b8b36c0d9153f5aba9e95</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::mutex *</type>
+      <name>requestLock</name>
+      <anchorfile>classlobby_1_1ApiSession.html</anchorfile>
+      <anchor>a1b42a28aa67e222ce547fccc328fcbfa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>libcomp::String</type>
+      <name>username</name>
+      <anchorfile>classlobby_1_1ApiSession.html</anchorfile>
+      <anchor>a70d17cacd5c6849ac7b6476c73e93cf8</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lobby::ClientState</name>
+    <filename>classlobby_1_1ClientState.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ClientState</name>
+      <anchorfile>classlobby_1_1ClientState.html</anchorfile>
+      <anchor>a32823cd62161db3e695df3119401e244</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~ClientState</name>
+      <anchorfile>classlobby_1_1ClientState.html</anchorfile>
+      <anchor>a2f6580ab7ae22ec07205da16b3c13e0c</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lobby::ImportHandler</name>
+    <filename>classlobby_1_1ImportHandler.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ImportHandler</name>
+      <anchorfile>classlobby_1_1ImportHandler.html</anchorfile>
+      <anchor>a9921ebdc3e0ce058a97f08f2ab2f0ccc</anchor>
+      <arglist>(const std::shared_ptr&lt; objects::LobbyConfig &gt; &amp;config, const std::shared_ptr&lt; lobby::LobbyServer &gt; &amp;server)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~ImportHandler</name>
+      <anchorfile>classlobby_1_1ImportHandler.html</anchorfile>
+      <anchor>ae8579e7bbf24d44481687f3df85c6f68</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>handlePost</name>
+      <anchorfile>classlobby_1_1ImportHandler.html</anchorfile>
+      <anchor>addce03fed26dd045fa15116b55def2ac</anchor>
+      <arglist>(CivetServer *pServer, struct mg_connection *pConnection)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>libcomp::String</type>
+      <name>ExtractFile</name>
+      <anchorfile>classlobby_1_1ImportHandler.html</anchorfile>
+      <anchor>a70a89c21fde4450efc035db1e3d714e3</anchor>
+      <arglist>(const libcomp::String &amp;contentType, const libcomp::String &amp;contentData)</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::shared_ptr&lt; objects::LobbyConfig &gt;</type>
+      <name>mConfig</name>
+      <anchorfile>classlobby_1_1ImportHandler.html</anchorfile>
+      <anchor>af4577d1a83df4b98dc7bc835ddfe5c2c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::shared_ptr&lt; lobby::LobbyServer &gt;</type>
+      <name>mServer</name>
+      <anchorfile>classlobby_1_1ImportHandler.html</anchorfile>
+      <anchor>a869aae33e7d93bd85ce782e0ed743210</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lobby::LobbyClientConnection</name>
+    <filename>classlobby_1_1LobbyClientConnection.html</filename>
+    <base>libcomp::LobbyConnection</base>
+    <member kind="function">
+      <type></type>
+      <name>LobbyClientConnection</name>
+      <anchorfile>classlobby_1_1LobbyClientConnection.html</anchorfile>
+      <anchor>a14e620a45dbcb9fe67648523991d03ed</anchor>
+      <arglist>(asio::ip::tcp::socket &amp;socket, const std::shared_ptr&lt; libcomp::Crypto::DiffieHellman &gt; &amp;diffieHellman)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~LobbyClientConnection</name>
+      <anchorfile>classlobby_1_1LobbyClientConnection.html</anchorfile>
+      <anchor>a977552e202f58f79ccd03d488a67c8f3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>ClientState *</type>
+      <name>GetClientState</name>
+      <anchorfile>classlobby_1_1LobbyClientConnection.html</anchorfile>
+      <anchor>a551ca619a5afaf6f3a72b11622fb54b6</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>SetClientState</name>
+      <anchorfile>classlobby_1_1LobbyClientConnection.html</anchorfile>
+      <anchor>ab346b51708d73dffbea839375771cc18</anchor>
+      <arglist>(const std::shared_ptr&lt; ClientState &gt; &amp;state)</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::shared_ptr&lt; ClientState &gt;</type>
+      <name>mClientState</name>
+      <anchorfile>classlobby_1_1LobbyClientConnection.html</anchorfile>
+      <anchor>ae0d87b255922c23939f424e13bfe74fc</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lobby::LobbyServer</name>
+    <filename>classlobby_1_1LobbyServer.html</filename>
+    <base>libcomp::BaseServer</base>
+    <member kind="function">
+      <type></type>
+      <name>LobbyServer</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>a0ee1a4a37edbef7816f8638aed183779</anchor>
+      <arglist>(const char *szProgram, std::shared_ptr&lt; objects::ServerConfig &gt; config, std::shared_ptr&lt; libcomp::ServerCommandLineParser &gt; commandLine, bool unitTestMode)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~LobbyServer</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>af946ae1dbd23a2ca38197dae69272089</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>libcomp::String</type>
+      <name>CheckImportObject</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>a30fbbd0848bb0a55cd2bdb02dd358e07</anchor>
+      <arglist>(const libcomp::String &amp;objectType, const std::shared_ptr&lt; libcomp::PersistentObject &gt; &amp;obj, const std::shared_ptr&lt; libcomp::Database &gt; &amp;lobbyDB, const std::shared_ptr&lt; libcomp::Database &gt; &amp;worldDB)</arglist>
+    </member>
+    <member kind="function">
+      <type>AccountManager *</type>
+      <name>GetAccountManager</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>a5a3b535dbeb5f2300dd2da93c2ba0aca</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>libcomp::String</type>
+      <name>GetFakeAccountSalt</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>a2d35949f1dc031c456ae1e064548b19f</anchor>
+      <arglist>(const libcomp::String &amp;username)</arglist>
+    </member>
+    <member kind="function">
+      <type>LobbySyncManager *</type>
+      <name>GetLobbySyncManager</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>a087adb4741b5999e1f9b47608a53e295</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>std::shared_ptr&lt; libcomp::Database &gt;</type>
+      <name>GetMainDatabase</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>aac41c9091687bcfcbe5c47d16e03246d</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>std::shared_ptr&lt; ManagerConnection &gt;</type>
+      <name>GetManagerConnection</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>a3ea83b9034adf5b3052740a1a68ec3e8</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>std::shared_ptr&lt; lobby::World &gt;</type>
+      <name>GetWorldByConnection</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>a12ba36d95ec6c17625dad4e9f96d7728</anchor>
+      <arglist>(std::shared_ptr&lt; libcomp::InternalConnection &gt; connection)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::shared_ptr&lt; lobby::World &gt;</type>
+      <name>GetWorldByID</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>a5b5af0bf490d00194f8c4b753c103930</anchor>
+      <arglist>(uint8_t worldID)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::list&lt; std::shared_ptr&lt; lobby::World &gt; &gt;</type>
+      <name>GetWorlds</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>a67b27b75159cd32dd3314c4aa8b1c988</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>libcomp::String</type>
+      <name>ImportAccount</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>ace15c42e3ea96bf4ba9941fe00b93941</anchor>
+      <arglist>(const libcomp::String &amp;data, uint8_t worldID=0)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>Initialize</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>a63b50fcd68f7ac973812f9b6012d4b2d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const std::shared_ptr&lt; lobby::World &gt;</type>
+      <name>RegisterWorld</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>aafa85be5cba1d4bf3db85d699fcfbb0d</anchor>
+      <arglist>(std::shared_ptr&lt; lobby::World &gt; &amp;world)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>SendWorldList</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>a8bba6ccda93882c827bbd3398041970a</anchor>
+      <arglist>(const std::shared_ptr&lt; libcomp::TcpConnection &gt; &amp;connection) const </arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual std::shared_ptr&lt; libcomp::TcpConnection &gt;</type>
+      <name>CreateConnection</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>aed4aeef0b349e53b73f94a29f06d3d88</anchor>
+      <arglist>(asio::ip::tcp::socket &amp;socket)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>CreateFirstAccount</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>a1c6eed81e8fd7e5a675e8d92004b8da8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>PromptCreateAccount</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>a7b930b3815728a84f1922d877149e755</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>ResetRegisteredWorlds</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>af6351032f80380c5fa0bc151758169aa</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>Setup</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>ac2f223a56e99eba29d21e3d151cf99cf</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>AccountManager *</type>
+      <name>mAccountManager</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>af84a3c3e87316479569b951ae4e25ca3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::shared_ptr&lt; libcomp::Database &gt;</type>
+      <name>mDatabase</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>afe8cf49f85643449e105c6c20d559142</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::unordered_map&lt; libcomp::String, libcomp::String &gt;</type>
+      <name>mFakeSalts</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>a5eb8fdc8c511b959400a4710dd2b889e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::mutex</type>
+      <name>mFakeSaltsLock</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>abf2652655596056be7f7cfe26afbaef4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::shared_ptr&lt; ManagerConnection &gt;</type>
+      <name>mManagerConnection</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>ab9e79f2cc01091932107b80215de5f89</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>LobbySyncManager *</type>
+      <name>mSyncManager</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>aa18f3f17ddad7f83d1c68a56347880a2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>mUnitTestMode</name>
+      <anchorfile>classlobby_1_1LobbyServer.html</anchorfile>
+      <anchor>aa040c019476731c05c694ebe0774f5cb</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lobby::LobbySyncManager</name>
+    <filename>classlobby_1_1LobbySyncManager.html</filename>
+    <base>libcomp::DataSyncManager</base>
+    <member kind="function">
+      <type></type>
+      <name>LobbySyncManager</name>
+      <anchorfile>classlobby_1_1LobbySyncManager.html</anchorfile>
+      <anchor>a1160ddffa6ca0d013117a71287635734</anchor>
+      <arglist>(const std::weak_ptr&lt; LobbyServer &gt; &amp;server)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~LobbySyncManager</name>
+      <anchorfile>classlobby_1_1LobbySyncManager.html</anchorfile>
+      <anchor>ae9451b63be0237289342ebe06de95615</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>Initialize</name>
+      <anchorfile>classlobby_1_1LobbySyncManager.html</anchorfile>
+      <anchor>a60ba2b8c427bd787694559d58d511189</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>Update</name>
+      <anchorfile>classlobby_1_1LobbySyncManager.html</anchorfile>
+      <anchor>a78df3fb5b92d4c450853312b308a86dc</anchor>
+      <arglist>(const libcomp::String &amp;type, const std::shared_ptr&lt; libcomp::Object &gt; &amp;obj, bool isRemove, const libcomp::String &amp;source)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>SyncAccount</name>
+      <anchorfile>classlobby_1_1LobbySyncManager.html</anchorfile>
+      <anchor>af2bf70fa5581a13d8339c7daf0790bff</anchor>
+      <arglist>(const std::shared_ptr&lt; objects::Account &gt; &amp;account)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>SyncCharacter</name>
+      <anchorfile>classlobby_1_1LobbySyncManager.html</anchorfile>
+      <anchor>adc4418d661cab0af4223191f987b7173</anchor>
+      <arglist>(const std::shared_ptr&lt; objects::Character &gt; &amp;character, bool isRemove)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>SyncCharacterProgress</name>
+      <anchorfile>classlobby_1_1LobbySyncManager.html</anchorfile>
+      <anchor>a515b10c83d42865de3642561da70c1fc</anchor>
+      <arglist>(const std::shared_ptr&lt; objects::CharacterProgress &gt; &amp;progress)</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::weak_ptr&lt; LobbyServer &gt;</type>
+      <name>mServer</name>
+      <anchorfile>classlobby_1_1LobbySyncManager.html</anchorfile>
+      <anchor>a1b6cdc54d2cc533eae3d784a34dc132a</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lobby::LoginHandler</name>
+    <filename>classlobby_1_1LoginHandler.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>LoginHandler</name>
+      <anchorfile>classlobby_1_1LoginHandler.html</anchorfile>
+      <anchor>ab07c78c84ae069794b2bb582bd759495</anchor>
+      <arglist>(const std::shared_ptr&lt; libcomp::Database &gt; &amp;database)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~LoginHandler</name>
+      <anchorfile>classlobby_1_1LoginHandler.html</anchorfile>
+      <anchor>af45c4d5c0dc8ee33ae03d556242a037d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>handleGet</name>
+      <anchorfile>classlobby_1_1LoginHandler.html</anchorfile>
+      <anchor>aee6d4779e2e6bbfc1295f3e91000c5d4</anchor>
+      <arglist>(CivetServer *pServer, struct mg_connection *pConnection)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>handlePost</name>
+      <anchorfile>classlobby_1_1LoginHandler.html</anchorfile>
+      <anchor>a11a047afeafae87f6ed980634c61b9c1</anchor>
+      <arglist>(CivetServer *pServer, struct mg_connection *pConnection)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>SetAccountManager</name>
+      <anchorfile>classlobby_1_1LoginHandler.html</anchorfile>
+      <anchor>af4b36d2476a3694b690fa8f5adfa7fa2</anchor>
+      <arglist>(AccountManager *pManager)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>SetConfig</name>
+      <anchorfile>classlobby_1_1LoginHandler.html</anchorfile>
+      <anchor>a2e560d14b8f0ee48c23bf1b4041491c1</anchor>
+      <arglist>(const std::shared_ptr&lt; objects::LobbyConfig &gt; &amp;config)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>bool</type>
+      <name>HandlePage</name>
+      <anchorfile>classlobby_1_1LoginHandler.html</anchorfile>
+      <anchor>afe4ecfc54e4afeec9d221b28e16649e7</anchor>
+      <arglist>(CivetServer *pServer, struct mg_connection *pConnection, const std::shared_ptr&lt; objects::LoginScriptRequest &gt; &amp;req)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>std::vector&lt; char &gt;</type>
+      <name>LoadVfsFile</name>
+      <anchorfile>classlobby_1_1LoginHandler.html</anchorfile>
+      <anchor>a4e7050e0063c90f12b4648a76a77121e</anchor>
+      <arglist>(const libcomp::String &amp;path)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>std::shared_ptr&lt; objects::LoginScriptRequest &gt;</type>
+      <name>ParsePost</name>
+      <anchorfile>classlobby_1_1LoginHandler.html</anchorfile>
+      <anchor>a96e12c57d1e743f3f8bb9160945cd6ae</anchor>
+      <arglist>(CivetServer *pServer, struct mg_connection *pConnection)</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>AccountManager *</type>
+      <name>mAccountManager</name>
+      <anchorfile>classlobby_1_1LoginHandler.html</anchorfile>
+      <anchor>a8128e8bc7883ad5fb21b4c671b29c0e6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::shared_ptr&lt; objects::LobbyConfig &gt;</type>
+      <name>mConfig</name>
+      <anchorfile>classlobby_1_1LoginHandler.html</anchorfile>
+      <anchor>a46509769a337d922f989e91d6991ffb3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::shared_ptr&lt; libcomp::Database &gt;</type>
+      <name>mDatabase</name>
+      <anchorfile>classlobby_1_1LoginHandler.html</anchorfile>
+      <anchor>ab69ab9933a87b9d715e7c285ef4f1064</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>ttvfs::Root</type>
+      <name>mVfs</name>
+      <anchorfile>classlobby_1_1LoginHandler.html</anchorfile>
+      <anchor>abc2849fbdd4ea73d850fc1837c01b603</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private" static="yes">
+      <type>static thread_local LoginHandlerThread</type>
+      <name>mThreadHandler</name>
+      <anchorfile>classlobby_1_1LoginHandler.html</anchorfile>
+      <anchor>a4061025c485f20cc8a56715746c0d303</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lobby::LoginHandlerThread</name>
+    <filename>classlobby_1_1LoginHandlerThread.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>LoginHandlerThread</name>
+      <anchorfile>classlobby_1_1LoginHandlerThread.html</anchorfile>
+      <anchor>a1bb1de8a6f9df3f7fd3e46c49a86f594</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~LoginHandlerThread</name>
+      <anchorfile>classlobby_1_1LoginHandlerThread.html</anchorfile>
+      <anchor>afc621538f2b7c8b7c29b973c240d9189</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>DidInit</name>
+      <anchorfile>classlobby_1_1LoginHandlerThread.html</anchorfile>
+      <anchor>a6295d8d2f9d3bcd3ffdd75bb7e7a5bbf</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>Init</name>
+      <anchorfile>classlobby_1_1LoginHandlerThread.html</anchorfile>
+      <anchor>a031cb0513f91dcd30a157fe4021a06af</anchor>
+      <arglist>(const libcomp::String &amp;script)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>ProcessLoginReply</name>
+      <anchorfile>classlobby_1_1LoginHandlerThread.html</anchorfile>
+      <anchor>a67a1e1a1295c26fa97437e65e27a552c</anchor>
+      <arglist>(const std::shared_ptr&lt; objects::LoginScriptReply &gt; &amp;reply)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>ProcessLoginRequest</name>
+      <anchorfile>classlobby_1_1LoginHandlerThread.html</anchorfile>
+      <anchor>a102cc18f3135ea94bc9892f09514aba5</anchor>
+      <arglist>(const std::shared_ptr&lt; objects::LoginScriptRequest &gt; &amp;req)</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>mDidInit</name>
+      <anchorfile>classlobby_1_1LoginHandlerThread.html</anchorfile>
+      <anchor>a02528969aa06a09d778493cc35c0327a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>libcomp::ScriptEngine</type>
+      <name>mEngine</name>
+      <anchorfile>classlobby_1_1LoginHandlerThread.html</anchorfile>
+      <anchor>a2318f96c660e61f6e15d9e8e5ef1cd87</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lobby::ManagerClientPacket</name>
+    <filename>classlobby_1_1ManagerClientPacket.html</filename>
+    <base>libcomp::ManagerPacket</base>
+    <member kind="function">
+      <type></type>
+      <name>ManagerClientPacket</name>
+      <anchorfile>classlobby_1_1ManagerClientPacket.html</anchorfile>
+      <anchor>a515bb5812b20e0df5030360b8608363a</anchor>
+      <arglist>(std::weak_ptr&lt; libcomp::BaseServer &gt; server)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~ManagerClientPacket</name>
+      <anchorfile>classlobby_1_1ManagerClientPacket.html</anchorfile>
+      <anchor>ad67eafa601a82a49eb1ffc1995ff11ee</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>ValidateConnectionState</name>
+      <anchorfile>classlobby_1_1ManagerClientPacket.html</anchorfile>
+      <anchor>abbc1ce1cc655eb58b7e1b51dba17ea5d</anchor>
+      <arglist>(const std::shared_ptr&lt; libcomp::TcpConnection &gt; &amp;connection, libcomp::CommandCode_t commandCode) const </arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lobby::ManagerConnection</name>
+    <filename>classlobby_1_1ManagerConnection.html</filename>
+    <base>libcomp::Manager</base>
+    <member kind="function">
+      <type></type>
+      <name>ManagerConnection</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>a279366a77643cbd02729fbd34b4bbdef</anchor>
+      <arglist>(std::weak_ptr&lt; libcomp::BaseServer &gt; server, asio::io_service *service, std::shared_ptr&lt; libcomp::MessageQueue&lt; libcomp::Message::Message * &gt;&gt; messageQueue)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~ManagerConnection</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>aeca514062c780714800271a9a4aae4dd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const std::shared_ptr&lt; LobbyClientConnection &gt;</type>
+      <name>GetClientConnection</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>a6f4a7289d96199531c2029211f354dcd</anchor>
+      <arglist>(const libcomp::String &amp;username) const </arglist>
+    </member>
+    <member kind="function">
+      <type>const std::list&lt; std::shared_ptr&lt; libcomp::TcpConnection &gt; &gt;</type>
+      <name>GetClientConnections</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>a84b6b0ce00e5111a494fd3cc9082c961</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual std::list&lt; libcomp::Message::MessageType &gt;</type>
+      <name>GetSupportedTypes</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>afb0b50132fc40f19d81d8a2e07e3e4d8</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>std::shared_ptr&lt; lobby::World &gt;</type>
+      <name>GetWorldByConnection</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>ac0965fcaaba828e5a140642967a1132d</anchor>
+      <arglist>(const std::shared_ptr&lt; libcomp::InternalConnection &gt; &amp;connection) const </arglist>
+    </member>
+    <member kind="function">
+      <type>std::shared_ptr&lt; lobby::World &gt;</type>
+      <name>GetWorldByID</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>aaac1123b052f7cd608fd98ced0c7c9ff</anchor>
+      <arglist>(uint8_t id) const </arglist>
+    </member>
+    <member kind="function">
+      <type>std::list&lt; std::shared_ptr&lt; lobby::World &gt; &gt;</type>
+      <name>GetWorlds</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>a0d2bc9b77ebbfb1c04c60bbfbb711d6f</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>InitializeWorld</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>ada133debcea2d221641d17dd80deff87</anchor>
+      <arglist>(const std::shared_ptr&lt; lobby::World &gt; &amp;world)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>ProcessMessage</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>ad07e4c1a45811f93e6ac9fd46da74e55</anchor>
+      <arglist>(const libcomp::Message::Message *pMessage)</arglist>
+    </member>
+    <member kind="function">
+      <type>const std::shared_ptr&lt; lobby::World &gt;</type>
+      <name>RegisterWorld</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>a0fe452ce6bffa3487d317ac5d28104f8</anchor>
+      <arglist>(std::shared_ptr&lt; lobby::World &gt; &amp;world)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>RemoveClientConnection</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>a93be1b950704e1dd9bb734b55d0406b0</anchor>
+      <arglist>(const std::shared_ptr&lt; LobbyClientConnection &gt; &amp;connection)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>RemoveWorld</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>a05c8271167df46222ca3a0f3fd230238</anchor>
+      <arglist>(std::shared_ptr&lt; lobby::World &gt; &amp;world)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>SetClientConnection</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>a99359d02d368b54dd729a88d0cd9694a</anchor>
+      <arglist>(const std::shared_ptr&lt; LobbyClientConnection &gt; &amp;connection)</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::unordered_map&lt; libcomp::String, std::shared_ptr&lt; LobbyClientConnection &gt; &gt;</type>
+      <name>mClientConnections</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>a40742ccd2acb0d3ad41c8e9af9856a99</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::shared_ptr&lt; libcomp::MessageQueue&lt; libcomp::Message::Message * &gt; &gt;</type>
+      <name>mMessageQueue</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>a2044373d38456ddaa4ca1c02b3f25cca</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::weak_ptr&lt; libcomp::BaseServer &gt;</type>
+      <name>mServer</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>a6bc2b4e1d4f7a730d82e90d1d655b980</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>asio::io_service *</type>
+      <name>mService</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>ad75da6071e366978012f5e5dade78724</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::list&lt; std::shared_ptr&lt; lobby::World &gt; &gt;</type>
+      <name>mUnregisteredWorlds</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>add3cbe3d67c162a8a8334bb8b4546b35</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::list&lt; std::shared_ptr&lt; lobby::World &gt; &gt;</type>
+      <name>mWorlds</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>afe0962f49626466b093f36debd0e2c55</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private" static="yes">
+      <type>static std::list&lt; libcomp::Message::MessageType &gt;</type>
+      <name>sSupportedTypes</name>
+      <anchorfile>classlobby_1_1ManagerConnection.html</anchorfile>
+      <anchor>a72b30885e78c7d972a5c85647d46e0a9</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lobby::WebGameApiSession</name>
+    <filename>classlobby_1_1WebGameApiSession.html</filename>
+    <base>lobby::ApiSession</base>
+    <member kind="variable">
+      <type>std::shared_ptr&lt; libcomp::ScriptEngine &gt;</type>
+      <name>gameState</name>
+      <anchorfile>classlobby_1_1WebGameApiSession.html</anchorfile>
+      <anchor>a407553b51432136517a87048c38ee07a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::shared_ptr&lt; objects::WebGameSession &gt;</type>
+      <name>webGameSession</name>
+      <anchorfile>classlobby_1_1WebGameApiSession.html</anchorfile>
+      <anchor>ad84d379aefdb6204948fbff5ad113756</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lobby::World</name>
+    <filename>classlobby_1_1World.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>World</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>afa39d4e6f714a7a3691ac0c656f5e8a8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~World</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>a8c73fba541a5817fff65147ba47cd827</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>std::shared_ptr&lt; objects::RegisteredChannel &gt;</type>
+      <name>GetChannelByID</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>aa9726895393d5553a2c6b5e3b8710528</anchor>
+      <arglist>(uint8_t id) const </arglist>
+    </member>
+    <member kind="function">
+      <type>const std::list&lt; std::shared_ptr&lt; objects::RegisteredChannel &gt; &gt;</type>
+      <name>GetChannels</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>aed5199b0cd798a7d860888e62f4f6f6a</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>std::shared_ptr&lt; libcomp::InternalConnection &gt;</type>
+      <name>GetConnection</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>ab8576d709efe41e31cd02704eb46d24f</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>const std::shared_ptr&lt; objects::RegisteredWorld &gt;</type>
+      <name>GetRegisteredWorld</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>ae8423ecd04030a64865dd7b1711f0c4a</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>std::shared_ptr&lt; libcomp::Database &gt;</type>
+      <name>GetWorldDatabase</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>ae7e2e917aaf6ab9805b7577dc244f4db</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>RegisterChannel</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>a2e1b4fdf1abf2ad08ab036fac17c58c4</anchor>
+      <arglist>(const std::shared_ptr&lt; objects::RegisteredChannel &gt; &amp;channel)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>RegisterWorld</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>a138f0f161c828e2d52bc40c4dd4cc590</anchor>
+      <arglist>(const std::shared_ptr&lt; objects::RegisteredWorld &gt; &amp;registeredWorld)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>RemoveChannelByID</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>a312b7623cbb92a56219b33c8cc8cfce1</anchor>
+      <arglist>(uint8_t id)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>SetConnection</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>a44022d4ac68b9d637c6957d6bffffdeb</anchor>
+      <arglist>(const std::shared_ptr&lt; libcomp::InternalConnection &gt; &amp;connection)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>SetWorldDatabase</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>a9c059ec1b99ea2bb04ada3a83744ff48</anchor>
+      <arglist>(const std::shared_ptr&lt; libcomp::Database &gt; &amp;database)</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::shared_ptr&lt; libcomp::InternalConnection &gt;</type>
+      <name>mConnection</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>a5fb1cb4dccda4dabd9bfd7be2df11832</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::shared_ptr&lt; libcomp::Database &gt;</type>
+      <name>mDatabase</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>afaba2fab6deb353bbefe416c26fa45d5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::list&lt; std::shared_ptr&lt; objects::RegisteredChannel &gt; &gt;</type>
+      <name>mRegisteredChannels</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>aa7a5b894a0d1e1a8a9ee6e818681c86b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::shared_ptr&lt; objects::RegisteredWorld &gt;</type>
+      <name>mRegisteredWorld</name>
+      <anchorfile>classlobby_1_1World.html</anchorfile>
+      <anchor>a0341b96551d232c5f5547df6a2134aa6</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>lobby::Parsers</name>
+    <filename>namespacelobby_1_1Parsers.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>aca2e41cdd31bda73ee3462d9a1e98a2a</anchor>
+      <arglist>(Login)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a31e6cbf7a170fc9ba06132c87c95b560</anchor>
+      <arglist>(Auth)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>ad3616aea5676ba5b6affee8709f86e93</anchor>
+      <arglist>(StartGame)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a7216fdada6c4a29614e1ca3d25556ae6</anchor>
+      <arglist>(CharacterList)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a239ec4c20de4e525e2ba750dd2b7f8b5</anchor>
+      <arglist>(WorldList)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>aaf82df6ceae524a51dd8cb9fe1604a3f</anchor>
+      <arglist>(CreateCharacter)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a210b63ff433620a14539d22320aca839</anchor>
+      <arglist>(DeleteCharacter)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a0a57a99d5ec1ab10a35a1f4224e93404</anchor>
+      <arglist>(QueryPurchaseTicket)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a481572863aed0c5635bdb6d7962b07b2</anchor>
+      <arglist>(PurchaseTicket)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a0c64ed240fe36bf30305ae66955b05d5</anchor>
+      <arglist>(SetWorldInfo)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a8b715b1581502e5eb469a8033ceca60a</anchor>
+      <arglist>(SetChannelInfo)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a4c3b75a48fe36d50672cef4740d17edd</anchor>
+      <arglist>(AccountLogin)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a263bad232bfe777a56ada3c6913e013c</anchor>
+      <arglist>(AccountLogout)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a36b2e7d6fa3a9592c2845ebb8cc915b1</anchor>
+      <arglist>(DataSync)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>PACKET_PARSER_DECL</name>
+      <anchorfile>namespacelobby_1_1Parsers.html</anchorfile>
+      <anchor>a674442c26da3f0cc743e18d56b4a3dc7</anchor>
+      <arglist>(WebGame)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>std::hash&lt; libcomp::String &gt;</name>
+    <filename>namespacestd_1_1hash_3_01libcomp_1_1String_01_4.html</filename>
+  </compound>
+  <compound kind="namespace">
+    <name>String</name>
+    <filename>namespaceString.html</filename>
+  </compound>
+  <compound kind="namespace">
+    <name>Var&lt; const libcomp::String &amp; &gt;</name>
+    <filename>namespaceVar_3_01const_01libcomp_1_1String_01_6_01_4.html</filename>
+  </compound>
+  <compound kind="namespace">
+    <name>Var&lt; const std::list&lt; std::shared_ptr&lt; T &gt; &gt; &amp; &gt;</name>
+    <filename>namespaceVar_3_01const_01std_1_1list_3_01std_1_1shared__ptr_3_01T_01_4_01_4_01_6_01_4.html</filename>
+  </compound>
+  <compound kind="namespace">
+    <name>Var&lt; libcomp::String &gt;</name>
+    <filename>namespaceVar_3_01libcomp_1_1String_01_4.html</filename>
+  </compound>
+  <compound kind="namespace">
+    <name>Var&lt; std::list&lt; std::shared_ptr&lt; T &gt; &gt; &gt;</name>
+    <filename>namespaceVar_3_01std_1_1list_3_01std_1_1shared__ptr_3_01T_01_4_01_4_01_4.html</filename>
+  </compound>
+  <compound kind="dir">
+    <name>game</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/game/</path>
+    <filename>dir_0fb15baa1145b9debc767a0b54ae1c1e.html</filename>
+    <file>Auth.cpp</file>
+    <file>CharacterList.cpp</file>
+    <file>CreateCharacter.cpp</file>
+    <file>DeleteCharacter.cpp</file>
+    <file>Login.cpp</file>
+    <file>PurchaseTicket.cpp</file>
+    <file>QueryPurchaseTicket.cpp</file>
+    <file>StartGame.cpp</file>
+    <file>WorldList.cpp</file>
+  </compound>
+  <compound kind="dir">
+    <name>internal</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/internal/</path>
+    <filename>dir_92e6d32e2955d3d73924513b929df056.html</filename>
+    <file>AccountLogin.cpp</file>
+    <file>AccountLogout.cpp</file>
+    <file>DataSync.cpp</file>
+    <file>SetChannelInfo.cpp</file>
+    <file>SetWorldInfo.cpp</file>
+    <file>WebGame.cpp</file>
+  </compound>
+  <compound kind="dir">
+    <name>lobby</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/</path>
+    <filename>dir_c4b553b542aca077c5321166afdfe4e1.html</filename>
+    <dir>src</dir>
+  </compound>
+  <compound kind="dir">
+    <name>packets</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/packets/</path>
+    <filename>dir_a0ff8e8ea51184add16965a01f3dc490.html</filename>
+    <dir>game</dir>
+    <dir>internal</dir>
+  </compound>
+  <compound kind="dir">
+    <name>server</name>
+    <path>/home/travis/build/comphack/comp_hack/server/</path>
+    <filename>dir_aa65ba6618b56792e3ebc26ea14325de.html</filename>
+    <dir>lobby</dir>
+  </compound>
+  <compound kind="dir">
+    <name>src</name>
+    <path>/home/travis/build/comphack/comp_hack/server/lobby/src/</path>
+    <filename>dir_7b9b77c8dcc66238baa1eee8ff3ab842.html</filename>
+    <dir>packets</dir>
+    <file>AccountManager.cpp</file>
+    <file>AccountManager.h</file>
+    <file>ApiHandler.cpp</file>
+    <file>ApiHandler.h</file>
+    <file>ClientState.cpp</file>
+    <file>ClientState.h</file>
+    <file>ImportHandler.cpp</file>
+    <file>ImportHandler.h</file>
+    <file>LobbyClientConnection.cpp</file>
+    <file>LobbyClientConnection.h</file>
+    <file>LobbyServer.cpp</file>
+    <file>LobbyServer.h</file>
+    <file>LobbySyncManager.cpp</file>
+    <file>LobbySyncManager.h</file>
+    <file>LoginHandlerThread.cpp</file>
+    <file>LoginHandlerThread.h</file>
+    <file>LoginWebHandler.cpp</file>
+    <file>LoginWebHandler.h</file>
+    <file>main.cpp</file>
+    <file>ManagerClientPacket.cpp</file>
+    <file>ManagerClientPacket.h</file>
+    <file>ManagerConnection.cpp</file>
+    <file>ManagerConnection.h</file>
+    <file>Packets.h</file>
+    <file>World.cpp</file>
+    <file>World.h</file>
+  </compound>
+  <compound kind="page">
+    <name>index</name>
+    <title>server/lobby - The lobby server</title>
+    <filename>index</filename>
+    <docanchor file="index" title="Starting the server">setup</docanchor>
+  </compound>
+</tagfile>

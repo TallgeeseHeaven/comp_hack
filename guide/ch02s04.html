@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Client Updater with Nginx</title><link rel="stylesheet" type="text/css" href="static/docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="home" href="index.html" title="COMP_hack: The Definitive Guide" /><link rel="up" href="ch02.html" title="Chapter 2. Server Setup" /><link rel="prev" href="ch02s03.html" title="Building from Source" /><link rel="next" href="ch02s05.html" title="Website with PHP &amp; Nginx" /></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Client Updater with Nginx</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02s03.html">Prev</a> </td><th width="60%" align="center">Chapter 2. Server Setup</th><td width="20%" align="right"> <a accesskey="n" href="ch02s05.html">Next</a></td></tr></table><hr /></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp46923509029184"></a>Client Updater with Nginx</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923506272208"></a>Overview</h3></div></div></div><p>
+	This section of the guide will describe installation and setup of a client update server on an Ubuntu 16.04 LTS (<a class="ulink" href="https://www.ubuntu.com" target="_top">https://www.ubuntu.com</a>) system with Nginx. Installation on other systems should be possible and this guide could be adapted for such a system; however, installation on these systems won't be described here. Similarly, DNS setup, connecting to and maintaining a Linux server, basic Linux commands, basic SQL and web development are out of the scope of this document. Please look elsewhere online for an excellent selection of guides, tutorials and videos on these topics.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923508516416"></a>Installing Nginx</h3></div></div></div><p>
+	You just need to install the package as follows:
+</p><pre class="programlisting">
+sudo apt-get update
+sudo apt-get install nginx
+</pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923506157712"></a>Client Files</h3></div></div></div><p>
+	Before you start, refer back to the Linux install section and make sure the tools are installed (the main server package isn't really required). Make sure you can run this command:
+</p><pre class="programlisting">
+comp_rehash
+</pre><p>
+	You should see output like this:
+</p><pre class="programlisting">
+SYNTAX: comp_rehash --base BASE --overlay OVERLAY
+</pre><p>
+	Now create a directory for the client files updater:
+</p><pre class="programlisting">
+sudo mkdir /var/www/updates
+sudo chown `whoami`:`whoami` /var/www/updates
+mkdir -p /var/www/updates/files/{base,overlay}
+</pre><p>
+	Now upload the original 1.666 update files (obtained elsewhere) into <span class="emphasis"><em>/var/www/updates/base</em></span>. You should see the <span class="emphasis"><em>.compressed</em></span> files as well as the <span class="emphasis"><em>hashlist.dat</em></span>. The directory should look like the following:
+</p><pre class="programlisting">
+Avatar                        ImagineClient.dat             msvcp71.dll
+BinaryData                    ImagineClient.exe             msvcp71.dll.compressed
+casket                        ImagineClient.exe.compressed  msvcr71.dll
+Devil                         ImagineOption.exe             msvcr71.dll.compressed
+effect                        ImagineOption.exe.compressed  NPC
+Event                         ImagineUpdate.exe             redist
+GungHoUpdate.dat              ImagineUpdate.exe.compressed  rtdlist.pfl
+GungHoUpdate.dat.compressed   Interface                     Shaders
+GunHoUpdate.dat               Map                           sound
+GunHoUpdate.dat.compressed    MSNUpdate.dat                 Title
+HangameUpdate.dat             MSNUpdate.dat.compressed      webaccess.sdat
+HangameUpdate.dat.compressed  mss32.dll
+hashlist.dat                  mss32.dll.compressed
+</pre><p>
+	Now upload the files you wish to replace or add into <span class="emphasis"><em>/var/www/updates/overlay</em></span>. This could include:
+</p><p>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Re-encrypted BinaryData files.</p></li><li class="listitem"><p>Client executable patch.</p></li><li class="listitem"><p>Alternate client updater.</p></li><li class="listitem"><p>New or modified content.</p></li></ul></div><p>
+</p><p>
+	The alternate client updater is included as part of the server software. You can download it in the zip release to avoid an install of the server software. Once the various files have been added the directory may look similar to the following:
+</p><pre class="programlisting">
+bearer               libGLESV2.dll       Qt5WebChannel.dll
+BinaryData           libstdc++-6.dll     Qt5WebEngineCore.dll
+comp_client.dll      opengl32sw.dll      Qt5WebEngineWidgets.dll
+comp_client.xml      platforms           Qt5Widgets.dll
+D3Dcompiler_47.dll   position            Qt5Xml.dll
+iconengines          Qt5Core.dll         QtWebEngineProcess.exe
+imageformats         Qt5Gui.dll          resources
+ImagineClient.exe    Qt5Network.dll      translations
+ImagineUpdate.dat    Qt5Positioning.dll  VersionData.txt
+ImagineUpdate.exe    Qt5Qml.dll          webaccess.sdat.local
+Interface            Qt5Quick.dll        webaccess.sdat.myserv
+libEGL.dll           Qt5SerialPort.dll
+libgcc_s_sjlj-1.dll  Qt5Svg.dll
+</pre><p>
+	Once all the files are in place, run the <span class="emphasis"><em>comp_rehash</em></span> command to generate the new <span class="emphasis"><em>hashlist.dat</em></span> file in the overlay. This tool will also generate <span class="emphasis"><em>hashlist.ver</em></span> which is specific to the alternate updater and <span class="emphasis"><em>.compressed</em></span> files which are needed by the updater. This command should be run again if the contents of the overlay are changed. Here is the command:
+</p><pre class="programlisting">
+comp_rehash --base /var/www/updates/files/base --overlay /var/www/updates/files/overlay
+</pre><p>
+	Lastly the root directory <span class="emphasis"><em>/var/www/updates</em></span> should contain the site to display in the updater. This could be a static page or a dynamic site (with Ruby/PHP/Java/etc).
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923520890656"></a>Version Data</h3></div></div></div><p>
+	The custom updater called the <span class="emphasis"><em>VersionData.txt</em></span>. It has a <span class="emphasis"><em>[versions]</em></span> section at the top. This lists a sequence of properties for each server the client may connect to. Each server should include a <span class="emphasis"><em>title</em></span>, <span class="emphasis"><em>server</em></span> and <span class="emphasis"><em>tag</em></span>. The <span class="emphasis"><em>title</em></span> is the name shown in the updater. The <span class="emphasis"><em>server</em></span> is the domain name or IP address as well as the port that will be written into the <span class="emphasis"><em>ImagineClient.dat</em></span>. Finally, the <span class="emphasis"><em>tag</em></span> is used to describe a section that follows. Here is an example:
+</p><pre class="programlisting">
+[versions]
+title = My Imagine Server
+server = myimagineserver.online:10666
+tag = myserv
+
+title = Local Server
+server = 127.0.0.1:10666
+tag = local
+
+[myserv]
+webaccess.sdat
+
+[local]
+webaccess.sdat
+</pre><p>
+	Each section that is tagged lists files that should be copied. For example, in the <span class="emphasis"><em>[myserv]</em></span> section it lists <span class="emphasis"><em>webaccess.sdat</em></span>. When the updater launches the client it will copy the file <span class="emphasis"><em>webaccess.dat.myserv</em></span> to the file named <span class="emphasis"><em>webaccess.sdat</em></span>. This copies the files with the tag at the end of the name to the file listed. This allows you to change files depending on the client being connected to. This is usually limited to the webaccess.sdat as this is needed for the login box and the in-game website (shop, casino, etc).
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp46923516258816"></a>Nginx Configuration</h3></div></div></div><p>
+	The files needed for the client updater are now in place. The next step is to configure the web server (Nginx). Create a new file <span class="emphasis"><em>/etc/nginx/sites-available/updates</em></span> with the following contents:
+</p><pre class="programlisting">
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name updates.myimagineserver.online;
+
+    root /var/www/updates;
+
+    location / {
+        # First attempt to serve request as file, then
+        # as directory, then fall back to displaying a 404.
+        try_files $uri $uri/ =404;
+
+        add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive";
+        add_header Cache-Control "must-revalidate, private, no-cache, no-store";
+    }
+
+    location ~ \.(php|pl|py|sh|fcgi)$ {
+        return 403;
+    }
+
+    location ~* ^/files/(.+)$ {
+        root /var/www/updates/files;
+
+        try_files /overlay/$1 /base/$1 =404;
+
+        add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive";
+        add_header Cache-Control "must-revalidate, private, no-cache, no-store";
+    }
+}
+</pre><p>
+	Change the <span class="emphasis"><em>server_name</em></span> setting to match the domain name of your server and configure any sub-domain as needed. This configuration will search for files in <span class="emphasis"><em>/var/www/updates/files/overlay</em></span> first. If the file is not found it will search in <span class="emphasis"><em>/var/www/updates/files/base</em></span>. If the file is still not found it will generate a 404. The <span class="emphasis"><em>Cache-Control</em></span> header is important if using the original updater as this updater will use IE to cache the update files. This can cause update problems when the files are changed. Now enable the configuration and restart Nginx:
+</p><pre class="programlisting">
+sudo ln -sf /etc/nginx/sites-available/updates /etc/nginx/sites-enabled/updates
+sudo service nginx restart
+</pre><p>
+	The updater should now be functional. Remember to edit the <span class="emphasis"><em>ImagineUpdate.dat</em></span> to point to the server:
+</p><pre class="programlisting">
+[Setting]
+BaseURL1 = http://updates.myimagineserver.online/files
+Information = http:/updates.myimagineserver.online
+</pre></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02s03.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch02s05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Building from Source </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Website with PHP &amp; Nginx</td></tr></table></div></body></html>
