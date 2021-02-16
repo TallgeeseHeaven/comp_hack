@@ -439,6 +439,18 @@ bool Parsers::ShopBuy::Parse(
   libcomp::String giftMessage =
       p.ReadString16Little(state->GetClientStringEncoding(), true);
 
+  if (state->GetExchangeSession()) {
+    // The client is in some kind of transaction with another.
+    LogItemError([&]() {
+      return libcomp::String(
+                 "Player attempted to buy something from a shop while in the "
+                 "middle of a transaction with another player: %1\n")
+          .Arg(state->GetAccountUID().ToString());
+    });
+
+    return true;
+  }
+
   if (quantity <= 0) {
     // Nothing to do
     SendShopPurchaseReply(client, shopID, productID, 0, false);

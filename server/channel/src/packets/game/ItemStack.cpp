@@ -321,14 +321,15 @@ bool Parsers::ItemStack::Parse(
 
   if (isSplit) {
     if (!exchangeSession ||
-        (exchangeSession && !exchangeSession->GetLocked())) {
+        exchangeSession->GetType() ==
+            objects::PlayerExchangeSession::Type_t::TRIFUSION_HOST) {
       server->QueueWork(SplitStack, server, client, srcItems.front(),
                         targetSlot);
     } else {
       LogItemError([&]() {
         return libcomp::String(
                    "Player attempted to split an item stack while in the "
-                   "middle of a locked transaction with another player: %1\n")
+                   "middle of disallowed transaction with another player: %1\n")
             .Arg(state->GetAccountUID().ToString());
       });
     }
